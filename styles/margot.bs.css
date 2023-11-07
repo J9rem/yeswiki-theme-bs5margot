@@ -8,4 +8,98 @@
  */
  
 @import 'vendor/bootstrap/bootstrap.min.css';
-@import '../../margot/styles/margot.css';
+
+/*
+ * from margot official
+ */
+
+ @import '../../margot/styles/margot-base/partials/general.css';
+ @import '../../margot/styles/margot-base/partials/navbar.css';
+ @import '../../margot/styles/margot-base/partials/header.css';
+ /* @import 'partials/header.css'; */
+ @import '../../margot/styles/margot-base/partials/main-containers.css';
+ @import '../../margot/styles/margot-base/partials/footer.css';
+ @import '../../margot/styles/margot-base/partials/page-edit.css';
+ @import '../../margot/styles/margot-base/partials/bazar.css';
+ @import '../../margot/styles/margot-base/partials/admin.css';
+ @import '../../margot/styles/margot-base/partials/vertical-menu.css';
+ 
+ @import '../../margot/styles/margot-base/components/buttons.css';
+ @import '../../margot/styles/margot-base/components/bootstrap-components.css';
+ @import '../../margot/styles/margot-base/components/modals.css';
+ @import '../../margot/styles/margot-base/components/forms.css';
+ @import '../../margot/styles/margot-base/components/checkboxes-radio.css';
+ @import '../../margot/styles/margot-base/components/tables.css';
+ 
+ @import '../../margot/styles/margot-base/templates/calendar.css';
+ @import '../../margot/styles/margot-base/templates/agenda.css';
+ @import '../../margot/styles/margot-base/templates/facette.css';
+ @import '../../margot/styles/margot-base/templates/accordion.css';
+ @import '../../margot/styles/margot-base/templates/search.css';
+ @import '../../margot/styles/margot-base/templates/annuaire.css';
+ 
+ /*
+  * CSS variables
+  */
+ :root {
+   --success-color: #3cab3b;
+   --danger-color: #d8604c;
+   --warning-color: #D78958;
+ 
+   --main-text-color: var(--neutral-color);
+   --main-bg-color: white;
+   --main-container-bg-color: white;
+ 
+   /* Default values when there is no preset */
+   --main-text-fontsize: 17px;
+   --main-text-fontfamily: "Nunito", sans-serif;
+   --main-title-fontfamily:'Nunito', sans-serif;
+   --title-h1-color:var(--primary-color);
+   --title-h2-color:var(--primary-color);
+   --title-h3-color:var(--secondary-color-1);
+   --title-h4-color:var(--secondary-color-2);
+   --title-h5-color:var(--secondary-color-2);
+ 
+   /* Links */
+   --link-color: var(--primary-color);
+   --link-hover-color: var(--primary-color);
+ 
+   /* contained page */
+   --navbar-bg-color: var(--primary-color);
+   --navbar-text-color: white;
+   --navbar-link-color: white;
+   --navbar-link-bg-color: transparent;
+   --navbar-link-hover-color: rgba(255, 255, 255, 0.85);
+   --navbar-link-bg-hover-color: transparent;
+   --navbar-border: none;
+   --navbar-border-radius: 0;
+   --navbar-shadow: none;
+ 
+ 
+   --header-bg-color: white;
+   --header-text-color: var(--neutral-color);
+   --header-title-color: var(--primary-color);
+ 
+   --footer-bg-color: transparent;
+   --footer-text-color: var(--main-text-color);
+   --footer-title-color: var(--main-text-color);
+   --footer-border: none; /* because .footer::after*/
+ 
+   --btn-border: none;
+   --btn-border-radius: .5em;
+ 
+   --checkbox-color: var(--primary-color)
+ }
+ 
+ @media (max-width: 1200px) {
+   :root {
+     --main-text-fontsize: 15px;
+   }
+ }
+ 
+ @media (max-width: 800px) {
+   :root {
+     --main-text-fontsize: 13px;
+   }
+ }
+ 
