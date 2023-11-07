@@ -13,6 +13,8 @@ Theme [YesWiki](https://yeswiki.net/) to use official theme `margot` with `boots
 
 In page `GererMisesAJour` on your YesWiki website, search theme  `bs5margot` and install it. (The not official extension [`alternativeupdatej9rem`](https://github.com/J9rem/yeswiki-extension-alternativeupdatej9rem) is required for the automatic install but the them can be manually installed by those who know.)
 
+**This theme require thme `margot` to be installed.**
+
 ## Warranty
 
 Like written in the licence file, there is no warranty on usage of this software. Refer to licence file for details.

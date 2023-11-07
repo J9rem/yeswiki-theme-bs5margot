@@ -13,6 +13,7 @@ Thème [YesWiki](https://yeswiki.net/) pour utiliser le thème officiel `margot`
 
 Dans la page `GererMisesAJour` de votre YesWiki, rechercher le thème  `bs5margot` et l'installer. (L'extension non officielle [`alternativeupdatej9rem`](https://github.com/J9rem/yeswiki-extension-alternativeupdatej9rem) est nécessaire pour l'installation automatisée mais le thème peut aussi être installé à la main pour les connaisseurs et connaisseuses.)
 
+**Ce thème nécessite l'installation du thème `margot`.**
 
 ## Garantie
 
