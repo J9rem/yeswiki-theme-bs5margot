@@ -6,12 +6,14 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+document.addEventListener('DOMContentLoaded', function() {
 
-$(document).ready(function() {
-
+  // configure topnav with new classes
   $("#yw-topnav .navbar-collapse").attr("id","navbarSupportedContent")
   $("#navbarSupportedContent .navbar-nav > li").addClass("nav-item")
   $("#navbarSupportedContent .navbar-nav > li > a").addClass("nav-link")
+
+  // manage dropdown 
   $(".dropdown-toggle").attr("data-bs-toggle","dropdown").attr("role","button").attr("aria-expanded","false")
   $(".dropdown-menu > li > a").addClass("dropdown-item")
    
