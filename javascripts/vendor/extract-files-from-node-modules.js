@@ -28,13 +28,13 @@ function copySync(src, dest, opts) {
 
 // bootstrap
 copySync(
-  'node_modules/bootstrap/dist/js/bootstrap.min.js',
-  'javascripts/bootstrap.min.js',
+  'node_modules/bootstrap/dist/js/bootstrap.bundle.min.js',
+  'javascripts/bs.bootstrap.bundle.min.js',
   { overwrite: true }
 )
 copySync(
-  'node_modules/bootstrap/dist/js/bootstrap.min.js.map',
-  'javascripts/bootstrap.min.js.map',
+  'node_modules/bootstrap/dist/js/bootstrap.bundle.min.js.map',
+  'javascripts/bootstrap.bundle.min.js.map',
   { overwrite: true }
 )
 copySync(
