@@ -29,7 +29,7 @@ Le moyen d'installation el plus connu est:
  - sur votre ordinateur de développement, installez [`nodejs`](https://nodejs.org/en/download) (avec `npm`)
  - pour un usage général à l'ordinateur:
    - installer `sass` en ligne de commande : `npm install -g sass`
-   - démarrer l'outil de surveillance `sass --watch ./styles/scss/main.scss ./styles/not-editable/main.min.css --style compressed`
+   - démarrer l'outil de surveillance `sass --watch ./styles/scss/main.scss ./styles/not-editable/main.css`
  - pour un usage local au projet :
    - installer [`yarn`](https://yarnpkg.com/)
    - démarrer l'outil de surveillance à partir de la ligne de commande depuis le dossier racine de ce projet `yarn watch-css`

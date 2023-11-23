@@ -8,6 +8,6 @@
   },
   "scripts": {
     "postinstall": "node ./javascripts/vendor/extract-files-from-node-modules.js",
-    "watch-css": "yarn install && sass --watch ./styles/scss/main.scss ./styles/not-editable/main.min.css --style compressed --no-source-map"
+    "watch-css": "yarn install && sass --watch ./styles/scss/main.scss ./styles/not-editable/main.css --no-source-map"
   }
 }
