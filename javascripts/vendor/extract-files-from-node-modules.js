@@ -18,9 +18,32 @@ const path = require('path')
 
 const basePath = path.join(__dirname, '../../')
 
-function copySync(src, dest, opts) {
+const copySync = (src, dest, opts) => {
   if (fs.existsSync(src)) {
     fs.copySync(path.join(basePath, src), path.join(basePath, dest), opts)
+  } else {
+    console.log(`${src} is not existing !`)
+  }
+}
+
+const replaceInFile = (src,anchor,replacement) => {
+  if (fs.existsSync(src)) {
+    const filepath = path.join(basePath, src)
+    fs.readFile(filepath, 'utf8', (err,data) => {
+      if (err) {
+        return console.log(err)
+      }
+      fs.writeFile(
+        filepath,
+        data.replace(anchor, replacement),
+        'utf8',
+        (err) => {
+          if (err) {
+            return console.log(err)
+          }
+        }
+      )
+    })
   } else {
     console.log(`${src} is not existing !`)
   }
@@ -32,10 +55,10 @@ copySync(
   'javascripts/bs.bootstrap.bundle.min.js',
   { overwrite: true }
 )
-copySync(
-  'node_modules/bootstrap/dist/js/bootstrap.bundle.min.js.map',
-  'javascripts/bootstrap.bundle.min.js.map',
-  { overwrite: true }
+replaceInFile(
+  'javascripts/bs.bootstrap.bundle.min.js',
+  '//# sourceMappingURL=bootstrap.bundle.min.js.map',
+  ''
 )
 copySync(
   'node_modules/bootstrap/LICENSE',
@@ -49,10 +72,10 @@ copySync(
   'javascripts/vendor/mdbootstrap/mdb.min.js',
   { overwrite: true }
 )
-copySync(
-  'node_modules/mdbootstrap/js/mdb.min.js.map',
-  'javascripts/vendor/mdbootstrap/mdb.min.js.map',
-  { overwrite: true }
+replaceInFile(
+  'javascripts/vendor/mdbootstrap/mdb.min.js',
+  '//# sourceMappingURL=mdb.min.js.map',
+  ''
 )
 copySync(
   'node_modules/mdbootstrap/license.txt',
@@ -64,10 +87,10 @@ copySync(
   'styles/vendor/mdbootstrap/mdb.min.css',
   { overwrite: true }
 )
-copySync(
-  'node_modules/mdbootstrap/css/mdb.min.css.map',
-  'styles/vendor/mdbootstrap/mdb.min.css.map',
-  { overwrite: true }
+replaceInFile(
+  'styles/vendor/mdbootstrap/mdb.min.css',
+  '/*# sourceMappingURL=mdb.min.css.map*/',
+  ''
 )
 copySync(
   'node_modules/mdbootstrap/license.txt',
