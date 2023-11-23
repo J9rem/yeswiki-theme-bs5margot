@@ -12331,6 +12331,73 @@ section.full-width .container, #yw-main .yw-main-content {
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+.type-modif-container {
+  margin-bottom: 1rem;
+}
+.type-modif-container label {
+  display: block;
+  font-weight: normal;
+}
+
+.edit-acl-container {
+  margin-bottom: 1.5rem;
+}
+.edit-acl-container .switch {
+  margin-bottom: 0.5rem;
+}
+
+td > label, th > label {
+  line-height: 0;
+  vertical-align: middle;
+  padding-left: 0.5rem;
+  margin: 0;
+  width: 1.2rem;
+}
+@media (max-width: 1200px) {
+  td > label, th > label {
+    padding-left: 0.2rem;
+  }
+}
+
+input[name=theme_modifier], input[name=geredroits_modifier] {
+  width: 100%;
+  display: block;
+}
+
+.btn-edit-group, .btn-create-group {
+  margin-left: 10px;
+}
+
+label.edit-group strong {
+  text-transform: uppercase;
+  color: var(--primary-color);
+}
+
+.table-condensed.table-updates tr > td:first-child, .table-condensed.table-updates tr > th:first-child {
+  padding-left: 1rem;
+}
+.table-condensed.table-updates tr > td:last-child {
+  text-align: center;
+}
+
+#accordion_update .panel {
+  margin-bottom: 1rem;
+}
+#accordion_update .dataTables_header {
+  margin: 0.5rem -0.3rem 0 0;
+}
+#accordion_update .dataTables_footer {
+  margin: 0 0 0.5rem 0;
+}
+
+/*
+ * This file is part of the YesWiki Theme bs5margot.
+ *
+ * Authors : see README.md file that was distributed with this source code.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 :root {
   --bs-body-bg: var(--main-bg-color);
   --bs-body-color: var(--main-text-color);
