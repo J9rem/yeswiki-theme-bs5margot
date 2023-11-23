@@ -57,9 +57,6 @@
    --footer-title-color: var(--main-text-color);
    --footer-border: none; /* because .footer::after*/
  
-   --btn-border: none;
-   --btn-border-radius: .5em;
- 
    --checkbox-color: var(--primary-color)
  }
  

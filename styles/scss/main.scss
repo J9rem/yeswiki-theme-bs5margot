@@ -20,7 +20,20 @@
     $link-decoration: none,
     $link-hover-decoration: underline,
     // general
-    $pre-color: inherit
+    $pre-color: inherit,
+    // buttons
+    $btn-border-width: 0,
+    $btn-border-radius: .5rem,
+    $btn-border-radius-lg: .5rem,
+    $btn-border-radius-sm: .5rem,
+    $btn-font-size: var(--main-text-fontsize),
+    $btn-color: var(--neutral-light-color),
+    $btn-padding-x: 1rem,
+    $btn-padding-y: .5rem,
+    $btn-font-weight: 600,
+    $btn-box-shadow: none,
+    $btn-link-color: var(--primary-color),
+    $btn-link-hover-color: var(--primary-color)
 );
 
 @import "partials/_general";
@@ -30,6 +43,8 @@
 @import "partials/_page-edit";
 @import "partials/_bazar";
 @import "partials/_admin";
+
+@import "components/_buttons";
 
 @import "partials/_converting_variables";
 

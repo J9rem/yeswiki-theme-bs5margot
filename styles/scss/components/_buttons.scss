@@ -1,0 +1,26 @@
+/*
+ * This file is part of the YesWiki Theme bs5margot.
+ *
+ * Authors : see README.md file that was distributed with this source code.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+.aceditor-toolbar .btn {
+  padding-top: .6rem;
+}
+
+.btn.disabled, .btn[disabled] {
+  opacity: .4;
+}
+
+.btn:not(.btn-icon) i {
+  margin-right: .5rem;
+}
+.btn.btn-sm:not(.btn-icon) i {
+  margin-right: .3rem;
+}
+.btn-link:hover, .btn-link:focus {
+  text-decoration: underline;
+}
