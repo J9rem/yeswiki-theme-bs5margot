@@ -1,0 +1,70 @@
+/*
+ * This file is part of the YesWiki Theme bs5margot.
+ *
+ * Authors : see README.md file that was distributed with this source code.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+/* Partie centrale de la page Wiki */
+
+%main-content {
+  width: 100%;
+  flex: 1 auto;
+  padding: 0;
+  max-width: 1100px;
+  border-radius: none;
+}
+
+#yw-main {
+  --padding-x: 1rem;
+  padding: var(--padding-x);
+  position: relative;
+  min-height: 400px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  @media (min-width: 992px) {
+    & { --padding-x: 1.5rem; }
+  }
+  @media (min-width: 1200px) {
+    & { --padding-x: 2rem; padding: 1.5rem var(--padding-x); }
+  }
+  @media (max-width: 800px) {
+    & {
+      flex-direction: column;
+      overflow-x: auto;
+    }
+  }
+  .side-bar {
+    width: 15rem;
+    &.left {
+      margin-right: 2rem;
+    }
+    &.right {
+      margin-left: 2rem;
+    }
+    @media (max-width: 800px) {
+      & {
+        width: 100%;
+        height: auto;
+        margin: 0 !important;
+      }
+    }
+  }
+  .yw-main-content{
+    @extend %main-content;
+  }
+}
+
+@media (max-width: 800px) {
+  .page, .menupage, .rightcolumnpage {
+    min-height: 0;
+  }
+}
+
+section.full-width .container {
+  @extend %main-content;
+}

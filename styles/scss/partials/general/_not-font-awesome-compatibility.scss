@@ -1,0 +1,42 @@
+/*
+ * This file is part of the YesWiki Theme bs5margot.
+ *
+ * Authors : see README.md file that was distributed with this source code.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+ 
+
+:not(.fa){
+    &:not(.fa-trash).icon-trash::before {
+        content: "\e020";
+    }
+
+    &:not(.fa-eye-open).icon-eye-open::before {
+        content: "\e105";  
+    }
+
+    &:not(.fa-tags).icon-tags::before {
+        content: "\e042";
+    }
+    &.icon-white, &:not(.form-group).icon, &.icon-pencil, &.icon-tags, &.icon-trash {
+        position: relative;
+        top: 1px;
+        display: inline-block;
+        font-family: "Glyphicons Halflings";
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1;
+    }
+}
+  
+/* Font Awesome */
+.fa-eye-open::before {
+    content: "\f06e";
+}
+
+.fa-remove::before {
+    content: "\f00d";
+}
+  

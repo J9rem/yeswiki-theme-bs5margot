@@ -1,0 +1,37 @@
+/*
+ * This file is part of the YesWiki Theme bs5margot.
+ *
+ * Authors : see README.md file that was distributed with this source code.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+ /* Bandeau d'entete */
+#yw-header {
+  background-color: var(--header-bg-color);
+  color: var(--header-text-color);
+
+  h1,h2,h3,h4,h5,h6  {
+    color: var(--header-title-color);
+  }
+
+
+  .white {
+    $local-white-color: var(--neutral-light-color) !important; 
+    color: $local-white-color;
+
+    h1,h2,h3,h4,h5,h6 {
+      color: $local-white-color;
+    }
+  }
+
+  .background-image {
+    background-position: center;
+    background-size: cover;
+  }
+
+  .navbar-header {
+    display: none;
+  }
+}

@@ -7,37 +7,9 @@
  * file that was distributed with this source code.
  */
  
-@import 'vendor/bootstrap/bootstrap.min.css';
+@import '../fonts/fonts.css';
+@import 'not-editable/main.css';
 
-/*
- * from margot official
- */
-
- @import '../../margot/styles/margot-base/partials/general.css';
- @import '../../margot/styles/margot-base/partials/navbar.css';
- @import '../../margot/styles/margot-base/partials/header.css';
- /* @import 'partials/header.css'; */
- @import '../../margot/styles/margot-base/partials/main-containers.css';
- @import '../../margot/styles/margot-base/partials/footer.css';
- @import '../../margot/styles/margot-base/partials/page-edit.css';
- @import '../../margot/styles/margot-base/partials/bazar.css';
- @import '../../margot/styles/margot-base/partials/admin.css';
- @import '../../margot/styles/margot-base/partials/vertical-menu.css';
- 
- @import '../../margot/styles/margot-base/components/buttons.css';
- @import '../../margot/styles/margot-base/components/bootstrap-components.css';
- @import '../../margot/styles/margot-base/components/modals.css';
- @import '../../margot/styles/margot-base/components/forms.css';
- @import '../../margot/styles/margot-base/components/checkboxes-radio.css';
- @import '../../margot/styles/margot-base/components/tables.css';
- 
- @import '../../margot/styles/margot-base/templates/calendar.css';
- @import '../../margot/styles/margot-base/templates/agenda.css';
- @import '../../margot/styles/margot-base/templates/facette.css';
- @import '../../margot/styles/margot-base/templates/accordion.css';
- @import '../../margot/styles/margot-base/templates/search.css';
- @import '../../margot/styles/margot-base/templates/annuaire.css';
- 
  /*
   * CSS variables
   */
@@ -84,9 +56,6 @@
    --footer-text-color: var(--main-text-color);
    --footer-title-color: var(--main-text-color);
    --footer-border: none; /* because .footer::after*/
- 
-   --btn-border: none;
-   --btn-border-radius: .5em;
  
    --checkbox-color: var(--primary-color)
  }

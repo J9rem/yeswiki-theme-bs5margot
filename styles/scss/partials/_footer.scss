@@ -1,0 +1,85 @@
+/*
+ * This file is part of the YesWiki Theme bs5margot.
+ *
+ * Authors : see README.md file that was distributed with this source code.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+ .footer {
+  font-size: .8em;
+  margin: 2em 0 1em 0;
+  padding: 0;
+  text-align: center;
+  border-bottom: var(--footer-border);
+  position: relative;
+
+  &::after {
+    content: "";
+    background-color: var(--neutral-soft-color);
+    position: absolute;
+    left: 1rem;
+    right: 1rem;
+    bottom: -1rem;
+    height: .5rem;
+    border-radius: .5rem;
+  }
+
+  a {
+    color: var(--neutral-soft-color);
+    padding: .3em .6em;
+    text-decoration: none;
+    display: inline-block;
+    margin: 0;
+    font-weight: 800;
+
+    &:hover {
+      text-decoration: none;
+      color: var(--neutral-color);
+      transition: color .2s;
+    }
+
+    i {
+      color: var(--primary-color);
+      font-size: 1.2em;
+      margin-right: 6px;
+      opacity: .7;
+      transition: opacity .2s;
+    }
+
+    &:hover i {
+      opacity: 1;
+    }
+
+  }
+
+  @media (max-width: 800px) {
+    & {
+      display: flex;
+      justify-content: space-around;
+    }
+    a > span {
+      display: none;
+    }
+    a i {
+      font-size: 1.1rem;
+    }
+    &::after {
+      left: 0;
+      right: 0;
+      border-radius: 0;
+    }
+  }
+}
+
+/* Pied de page */
+
+#yw-footer {
+  background-color: var(--footer-bg-color);
+  color: var(--footer-text-color);
+  padding: 30px 0;
+  h1,h2,h3,h4,h5,h6 {
+    color: var(--footer-title-color);
+  }
+}

@@ -1,0 +1,23 @@
+/*
+ * This file is part of the YesWiki Theme bs5margot.
+ *
+ * Authors : see README.md file that was distributed with this source code.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+/* Links */
+a {
+  color: var(--link-color);
+  font-weight: 600;
+}
+
+a:focus{
+  @extend a, :hover;
+}
+
+a.yeswiki-editable .icon-edit {
+  font-size: .8rem;
+  margin-left: 2px;
+}

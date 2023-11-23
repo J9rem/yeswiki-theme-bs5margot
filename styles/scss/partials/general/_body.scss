@@ -1,0 +1,22 @@
+/*
+ * This file is part of the YesWiki Theme bs5margot.
+ *
+ * Authors : see README.md file that was distributed with this source code.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+/*
+ * Main styles
+ */
+
+body {
+    padding: 0 !important;
+    background-image: none !important;
+}
+
+html {
+    /* define also html so we can use rem */
+    @extend body;
+}

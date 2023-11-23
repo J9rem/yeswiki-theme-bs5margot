@@ -1,0 +1,20 @@
+/*
+ * This file is part of the YesWiki Theme bs5margot.
+ *
+ * Authors : see README.md file that was distributed with this source code.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+ :root{
+    // body, html
+    --bs-body-bg: var(--main-bg-color);
+    --bs-body-color: var(--main-text-color);
+    --bs-body-font-size: var(--main-text-fontsize);
+    --bs-body-font-family: var(--main-text-fontfamily);
+    --bs-body-line-height: 1.6;
+
+    // titles
+    --bs-heading-color: var(--primary-color);
+ }
