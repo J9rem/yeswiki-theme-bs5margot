@@ -4758,7 +4758,7 @@ textarea.form-control-lg {
   --bs-pagination-border-radius: var(--bs-border-radius-sm);
 }
 
-.badge {
+.badge, .label {
   --bs-badge-padding-x: 0.65em;
   --bs-badge-padding-y: 0.35em;
   --bs-badge-font-size: 0.75em;
@@ -4776,11 +4776,11 @@ textarea.form-control-lg {
   vertical-align: baseline;
   border-radius: var(--bs-badge-border-radius);
 }
-.badge:empty {
+.badge:empty, .label:empty {
   display: none;
 }
 
-.btn .badge {
+.btn .badge, .btn .label {
   position: relative;
   top: -1px;
 }
@@ -12817,6 +12817,60 @@ section .well {
   border: none;
   margin: 1rem 0;
   padding: 2rem 2.5rem;
+}
+
+/*
+ * This file is part of the YesWiki Theme bs5margot.
+ *
+ * Authors : see README.md file that was distributed with this source code.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+.label {
+  padding: 0.2em 0.5em;
+  vertical-align: middle;
+}
+
+.label-default {
+  background-color: var(--neutral-color);
+}
+
+.label-neutral {
+  background-color: var(--neutral-color);
+}
+
+.label-primary, .label-info {
+  background-color: var(--primary-color);
+}
+
+.label-secondary-1 {
+  background-color: var(--secondary-color-1);
+}
+
+.label-secondary-2 {
+  background-color: var(--secondary-color-2);
+}
+
+.label-success {
+  background-color: var(--success-color);
+}
+
+.label-warning {
+  background-color: var(--warning-color);
+}
+
+.label-danger {
+  background-color: var(--danger-color);
+}
+
+.label-info {
+  opacity: 0.6;
+}
+
+/* tag label in leaflet */
+.leaflet-container a.tag-label {
+  color: var(--neutral-light-color);
 }
 
 /*
