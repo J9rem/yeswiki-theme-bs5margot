@@ -48,6 +48,7 @@ $margot-theme-colors: (
 
 @import "partials/_general";
 @import "partials/_header";
+// @import "partials/_navbar";
 @import "partials/_main-container";
 @import "partials/_footer";
 @import "partials/_page-edit";
@@ -59,7 +60,10 @@ $margot-theme-colors: (
 @import "components/_section";
 @import "components/_label";
 @import "components/_alert";
+// @import "components/_panel";
 @import "components/_modals";
+@import "components/_forms";
+// @import "components/_checkboxes-radio";
 @import "components/_tables";
 
 @import "partials/_converting_variables";

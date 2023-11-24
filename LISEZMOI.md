@@ -7,6 +7,8 @@ Thème [YesWiki](https://yeswiki.net/) pour utiliser `bootstrap 5`.
 ## Auteurs
 
  - Jérémy Dufraisse
+ - Sebastian Castro (thème `margot`)
+ - Association YesWiki (thème `margot`)
  - et tous les contributeurs et toutes les contributrices indiqués sur cette page : <https://github.com/J9rem/yeswiki-theme-bs5margot/graphs/contributors>
 
 ## Installation
