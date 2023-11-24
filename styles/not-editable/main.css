@@ -12766,6 +12766,67 @@ label.edit-group strong {
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+.well {
+  border: 3px solid var(--primary-color);
+  background-color: var(--main-bg-color);
+  padding: 1rem 1.75rem;
+  border-radius: 0.5rem;
+}
+
+/*
+ * This file is part of the YesWiki Theme bs5margot.
+ *
+ * Authors : see README.md file that was distributed with this source code.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+section {
+  padding: 1rem;
+}
+@media (max-width: 1200px) {
+  section.full-width .container {
+    padding: 0 1.5rem;
+  }
+}
+@media (max-width: 800px) {
+  section.full-width .container {
+    padding: 0 1rem;
+  }
+}
+section.with-bg-pattern .container {
+  background-color: var(--main-bg-color);
+  border-radius: 0.5rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding: 2rem 2.5rem;
+}
+@media (max-width: 900px) {
+  section.with-bg-pattern .container {
+    padding: 1rem;
+  }
+}
+section.with-bg-pattern:not(.full-width) .container {
+  margin: 1rem 2rem;
+}
+.yw-headerpage section.with-bg-pattern:not(.full-width) .container {
+  margin: 1rem auto !important;
+}
+section .well {
+  background-color: var(--main-bg-color);
+  border: none;
+  margin: 1rem 0;
+  padding: 2rem 2.5rem;
+}
+
+/*
+ * This file is part of the YesWiki Theme bs5margot.
+ *
+ * Authors : see README.md file that was distributed with this source code.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 :root {
   --bs-body-bg: var(--main-bg-color);
   --bs-body-color: var(--main-text-color);

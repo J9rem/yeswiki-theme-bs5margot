@@ -1,0 +1,44 @@
+/*
+ * This file is part of the YesWiki Theme bs5margot.
+ *
+ * Authors : see README.md file that was distributed with this source code.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+section {
+  padding:1rem;
+  &.full-width .container {
+    @media (max-width: 1200px) {
+      padding: 0 1.5rem;
+    }
+    @media (max-width: 800px) {
+      padding: 0 1rem; 
+    }
+  }
+
+  &.with-bg-pattern{
+    .container {
+      background-color: var(--main-bg-color);
+      border-radius: .5rem;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+      padding: 2rem 2.5rem;
+      @media (max-width: 900px) {
+        padding: 1rem;
+      }
+    }
+    &:not(.full-width) .container {
+      margin: 1rem 2rem;
+      .yw-headerpage & {
+        margin: 1rem auto !important;
+      }
+    }
+  }
+  .well {
+    background-color: var(--main-bg-color);
+    border: none;
+    margin: 1rem 0;
+    padding: 2rem 2.5rem;
+  }
+}
