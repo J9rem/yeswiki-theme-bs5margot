@@ -22,10 +22,10 @@
     // general
     $pre-color: inherit,
     // buttons
-    $btn-border-width: 0,
-    $btn-border-radius: .5rem,
-    $btn-border-radius-lg: .5rem,
-    $btn-border-radius-sm: .5rem,
+    $btn-border-width: var(--btn-border),
+    $btn-border-radius: var(--btn-border-radius),
+    $btn-border-radius-lg: var(--btn-border-radius),
+    $btn-border-radius-sm: var(--btn-border-radius),
     $btn-font-size: var(--main-text-fontsize),
     $btn-color: var(--neutral-light-color),
     $btn-padding-x: 1rem,
@@ -33,7 +33,17 @@
     $btn-font-weight: 600,
     $btn-box-shadow: none,
     $btn-link-color: var(--primary-color),
-    $btn-link-hover-color: var(--primary-color)
+    $btn-link-hover-color: var(--primary-color),
+    $btn-disabled-opacity: .4
+);
+
+$margot-theme-colors: (
+    "primary": --primary-color,
+    "secondary-1": --secondary-color-1,
+    "secondary-2": --secondary-color-2,
+    "success": --success-color,
+    "warning": --warning-color,
+    "danger": --danger-color
 );
 
 @import "partials/_general";

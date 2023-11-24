@@ -2450,7 +2450,7 @@ textarea.form-control-lg {
 .btn-check[disabled] + .btn, .btn-check:disabled + .btn {
   pointer-events: none;
   filter: none;
-  opacity: 0.65;
+  opacity: 0.4;
 }
 
 [data-bs-theme=dark] .form-switch .form-check-input:not(:checked):not(:focus) {
@@ -2908,12 +2908,12 @@ textarea.form-control-lg {
   --bs-btn-line-height: 1.6;
   --bs-btn-color: var(--neutral-light-color);
   --bs-btn-bg: transparent;
-  --bs-btn-border-width: 0;
+  --bs-btn-border-width: var(--btn-border);
   --bs-btn-border-color: transparent;
-  --bs-btn-border-radius: 0.5rem;
+  --bs-btn-border-radius: var(--btn-border-radius);
   --bs-btn-hover-border-color: transparent;
   --bs-btn-box-shadow: none;
-  --bs-btn-disabled-opacity: 0.65;
+  --bs-btn-disabled-opacity: 0.4;
   --bs-btn-focus-box-shadow: 0 0 0 0.25rem rgba(var(--bs-btn-focus-shadow-rgb), .5);
   display: inline-block;
   padding: var(--bs-btn-padding-y) var(--bs-btn-padding-x);
@@ -2975,7 +2975,7 @@ textarea.form-control-lg {
   opacity: var(--bs-btn-disabled-opacity);
 }
 
-.btn-primary {
+.btn-primary, .btn-info {
   --bs-btn-color: #fff;
   --bs-btn-bg: #0d6efd;
   --bs-btn-border-color: #0d6efd;
@@ -3276,14 +3276,14 @@ textarea.form-control-lg {
   --bs-btn-padding-y: 0.5rem;
   --bs-btn-padding-x: 1rem;
   --bs-btn-font-size: 1.25rem;
-  --bs-btn-border-radius: 0.5rem;
+  --bs-btn-border-radius: var(--btn-border-radius);
 }
 
 .btn-sm, .btn-group-sm > .btn {
   --bs-btn-padding-y: 0.25rem;
   --bs-btn-padding-x: 0.5rem;
   --bs-btn-font-size: 0.875rem;
-  --bs-btn-border-radius: 0.5rem;
+  --bs-btn-border-radius: var(--btn-border-radius);
 }
 
 .fade {
@@ -3676,11 +3676,11 @@ textarea.form-control-lg {
 }
 
 .btn-group {
-  border-radius: 0.5rem;
+  border-radius: var(--btn-border-radius);
 }
 .btn-group > :not(.btn-check:first-child) + .btn,
 .btn-group > .btn-group:not(:first-child) {
-  margin-left: calc(0 * -1);
+  margin-left: calc(var(--btn-border) * -1);
 }
 .btn-group > .btn:not(:last-child):not(.dropdown-toggle),
 .btn-group > .btn.dropdown-toggle-split:first-child,
@@ -3727,7 +3727,7 @@ textarea.form-control-lg {
 }
 .btn-group-vertical > .btn:not(:first-child),
 .btn-group-vertical > .btn-group:not(:first-child) {
-  margin-top: calc(0 * -1);
+  margin-top: calc(var(--btn-border) * -1);
 }
 .btn-group-vertical > .btn:not(:last-child):not(.dropdown-toggle),
 .btn-group-vertical > .btn-group:not(:last-child) > .btn {
@@ -3893,7 +3893,7 @@ textarea.form-control-lg {
   --bs-navbar-toggler-font-size: 1.25rem;
   --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2833, 37, 41, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
   --bs-navbar-toggler-border-color: rgba(var(--bs-emphasis-color-rgb), 0.15);
-  --bs-navbar-toggler-border-radius: 0.5rem;
+  --bs-navbar-toggler-border-radius: var(--btn-border-radius);
   --bs-navbar-toggler-focus-width: 0.25rem;
   --bs-navbar-toggler-transition: box-shadow 0.15s ease-in-out;
   position: relative;
@@ -12312,7 +12312,7 @@ section.full-width .container, #yw-main .yw-main-content {
   padding-bottom: 1rem;
   border-bottom: 1px solid #eee;
 }
-[ondblclick$="?ReglesDeFormatage/edit';"] .page .btn-primary, #YesWikiHelpModal .page .btn-primary {
+[ondblclick$="?ReglesDeFormatage/edit';"] .page .btn-primary, [ondblclick$="?ReglesDeFormatage/edit';"] .page .btn-info, #YesWikiHelpModal .page .btn-primary, #YesWikiHelpModal .page .btn-info {
   border-radius: 4px;
   padding: 2px 1em;
   font-size: 0.8em;
@@ -12571,10 +12571,6 @@ label.edit-group strong {
   padding-top: 0.6rem;
 }
 
-.btn.disabled, .btn[disabled] {
-  opacity: 0.4;
-}
-
 .btn:not(.btn-icon) i {
   margin-right: 0.5rem;
 }
@@ -12587,6 +12583,181 @@ label.edit-group strong {
   text-decoration: underline;
 }
 
+.btn-danger, .btn-warning, .btn-success, .btn-secondary-2, .btn-secondary-1, .btn-primary, .btn-info, .btn-neutral {
+  --bs-btn-color: var(--neutral-light-color);
+  --bs-btn-hover-color: var(--neutral-light-color);
+  --bs-btn-disabled-color: var(--neutral-light-color);
+}
+
+.btn-default {
+  --bs-btn-color: var(--neutral-color);
+  --bs-btn-hover-color: var(--neutral-color);
+  --bs-btn-disabled-color: var(--neutral-color);
+  --bs-btn-bg: transparent;
+  --bs-btn-border-color: transparent;
+  --bs-btn-active-color: transparent;
+  --bs-btn-disabled-bg: transparent;
+  --bs-btn-disabled-border-color: transparent;
+  --bs-btn-hover-bg: #eee;
+  --bs-btn-hover-border-color: #eee;
+  --bs-btn-active-bg: #eee;
+  --bs-btn-active-border-color: #eee;
+}
+.alert .btn-default {
+  color: var(--neutral-color);
+}
+
+.btn-neutral {
+  --bs-btn-bg: var(--neutral-color);
+  --bs-btn-border-color: var(--neutral-color);
+  --bs-btn-active-color: var(--neutral-color);
+  --bs-btn-disabled-bg: var(--neutral-color);
+  --bs-btn-disabled-border-color: var(--neutral-color);
+  --bs-btn-hover-bg: var(--neutral-soft-color);
+  --bs-btn-hover-border-color: var(--neutral-soft-color);
+  --bs-btn-active-bg: var(--neutral-soft-color);
+  --bs-btn-active-border-color: var(--neutral-soft-color);
+}
+.alert .btn-neutral {
+  color: var(--neutral-light-color);
+}
+
+.btn-primary, .btn-info {
+  --bs-btn-bg: var(--primary-color);
+  --bs-btn-border-color: var(--primary-color);
+  --bs-btn-active-color: var(--primary-color);
+  --bs-btn-disabled-bg: var(--primary-color);
+  --bs-btn-disabled-border-color: var(--primary-color);
+  --bs-btn-hover-bg: var(--primary-color);
+  --bs-btn-hover-border-color: var(--primary-color);
+  --bs-btn-active-bg: var(--primary-color);
+  --bs-btn-active-border-color: var(--primary-color);
+}
+.alert .btn-primary, .alert .btn-info {
+  color: var(--neutral-light-color);
+}
+
+.btn-secondary-1 {
+  --bs-btn-bg: var(--secondary-color-1);
+  --bs-btn-border-color: var(--secondary-color-1);
+  --bs-btn-active-color: var(--secondary-color-1);
+  --bs-btn-disabled-bg: var(--secondary-color-1);
+  --bs-btn-disabled-border-color: var(--secondary-color-1);
+  --bs-btn-hover-bg: var(--secondary-color-1);
+  --bs-btn-hover-border-color: var(--secondary-color-1);
+  --bs-btn-active-bg: var(--secondary-color-1);
+  --bs-btn-active-border-color: var(--secondary-color-1);
+}
+.alert .btn-secondary-1 {
+  color: var(--neutral-light-color);
+}
+
+.btn-secondary-2 {
+  --bs-btn-bg: var(--secondary-color-2);
+  --bs-btn-border-color: var(--secondary-color-2);
+  --bs-btn-active-color: var(--secondary-color-2);
+  --bs-btn-disabled-bg: var(--secondary-color-2);
+  --bs-btn-disabled-border-color: var(--secondary-color-2);
+  --bs-btn-hover-bg: var(--secondary-color-2);
+  --bs-btn-hover-border-color: var(--secondary-color-2);
+  --bs-btn-active-bg: var(--secondary-color-2);
+  --bs-btn-active-border-color: var(--secondary-color-2);
+}
+.alert .btn-secondary-2 {
+  color: var(--neutral-light-color);
+}
+
+.btn-success {
+  --bs-btn-bg: var(--success-color);
+  --bs-btn-border-color: var(--success-color);
+  --bs-btn-active-color: var(--success-color);
+  --bs-btn-disabled-bg: var(--success-color);
+  --bs-btn-disabled-border-color: var(--success-color);
+  --bs-btn-hover-bg: var(--success-color);
+  --bs-btn-hover-border-color: var(--success-color);
+  --bs-btn-active-bg: var(--success-color);
+  --bs-btn-active-border-color: var(--success-color);
+}
+.alert .btn-success {
+  color: var(--neutral-light-color);
+}
+
+.btn-warning {
+  --bs-btn-bg: var(--warning-color);
+  --bs-btn-border-color: var(--warning-color);
+  --bs-btn-active-color: var(--warning-color);
+  --bs-btn-disabled-bg: var(--warning-color);
+  --bs-btn-disabled-border-color: var(--warning-color);
+  --bs-btn-hover-bg: var(--warning-color);
+  --bs-btn-hover-border-color: var(--warning-color);
+  --bs-btn-active-bg: var(--warning-color);
+  --bs-btn-active-border-color: var(--warning-color);
+}
+.alert .btn-warning {
+  color: var(--neutral-light-color);
+}
+
+.btn-danger {
+  --bs-btn-bg: var(--danger-color);
+  --bs-btn-border-color: var(--danger-color);
+  --bs-btn-active-color: var(--danger-color);
+  --bs-btn-disabled-bg: var(--danger-color);
+  --bs-btn-disabled-border-color: var(--danger-color);
+  --bs-btn-hover-bg: var(--danger-color);
+  --bs-btn-hover-border-color: var(--danger-color);
+  --bs-btn-active-bg: var(--danger-color);
+  --bs-btn-active-border-color: var(--danger-color);
+}
+.alert .btn-danger {
+  color: var(--neutral-light-color);
+}
+
+.btn-info {
+  opacity: 0.7;
+}
+
+.btn.btn-xs i {
+  margin-right: 0;
+}
+
+.btn-xs.btn-danger {
+  background-color: transparent !important;
+  color: var(--danger-color);
+}
+
+.btn-xs.btn-danger:hover, a.btn-xs.btn-danger:focus {
+  background: #eee !important;
+}
+
+.caret {
+  margin-left: 5px;
+  opacity: 0.9;
+  border-radius: 2px;
+}
+
+.btn-group-sm > .btn, .btn-sm {
+  padding: 5px 10px;
+  font-size: 0.9rem;
+}
+
+.btn-group-lg > .btn, .btn-lg {
+  padding: 10px 40px;
+  font-size: 1.5rem;
+}
+
+.btn-xs {
+  padding: 2px 7px !important;
+  border-radius: 0.3em;
+  font-size: 0.9em;
+}
+
+/* To prevent display trouble in small screen */
+@media (max-width: 800px) {
+  a.btn {
+    white-space: normal;
+    word-break: break-word;
+  }
+}
 /*
  * This file is part of the YesWiki Theme bs5margot.
  *

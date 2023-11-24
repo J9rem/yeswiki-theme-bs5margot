@@ -11,10 +11,6 @@
   padding-top: .6rem;
 }
 
-.btn.disabled, .btn[disabled] {
-  opacity: .4;
-}
-
 .btn:not(.btn-icon) i {
   margin-right: .5rem;
 }
@@ -23,4 +19,110 @@
 }
 .btn-link:hover, .btn-link:focus {
   text-decoration: underline;
+}
+
+%neutral-light-color-btn {
+  --bs-btn-color: var(--neutral-light-color);
+  --bs-btn-hover-color: var(--neutral-light-color);
+  --bs-btn-disabled-color: var(--neutral-light-color);
+}
+
+@mixin margot-btn($color,$bg,$bghover){
+  @if $color == --neutral-light-color {
+    @extend %neutral-light-color-btn;
+    .alert & {
+      color: var(--neutral-light-color);
+    }
+  } @else {
+    --bs-btn-color: var(#{$color});
+    --bs-btn-hover-color: var(#{$color});
+    --bs-btn-disabled-color: var(#{$color});
+    .alert & {
+      color: var(#{$color});
+    }
+  }
+  @if $bg == transparent {
+    --bs-btn-bg: transparent;
+    --bs-btn-border-color: transparent;
+    --bs-btn-active-color: transparent;
+    --bs-btn-disabled-bg: transparent;
+    --bs-btn-disabled-border-color: transparent;
+  } @else {
+    --bs-btn-bg: var(#{$bg});
+    --bs-btn-border-color: var(#{$bg});
+    --bs-btn-active-color: var(#{$bg});
+    --bs-btn-disabled-bg: var(#{$bg});
+    --bs-btn-disabled-border-color: var(#{$bg});
+  }
+  @if $bghover == #eee {
+    --bs-btn-hover-bg: #eee;
+    --bs-btn-hover-border-color: #eee;
+    --bs-btn-active-bg: #eee;
+    --bs-btn-active-border-color: #eee;
+  } @else {
+    --bs-btn-hover-bg: var(#{$bghover});
+    --bs-btn-hover-border-color: var(#{$bghover});
+    --bs-btn-active-bg: var(#{$bghover});
+    --bs-btn-active-border-color: var(#{$bghover});
+  }
+}
+
+.btn-default {
+  @include margot-btn(--neutral-color,transparent,#eee);
+}
+
+.btn-neutral {
+  @include margot-btn(--neutral-light-color,--neutral-color,--neutral-soft-color);
+}
+
+@each $name, $color in $margot-theme-colors {
+  .btn-#{$name} {
+    @include margot-btn(--neutral-light-color,#{$color},#{$color});
+  }
+}
+
+.btn-info {
+  @extend .btn-primary;
+  opacity: .7;
+}
+
+.btn.btn-xs i {
+  margin-right: 0;
+}
+.btn-xs.btn-danger {
+  background-color: transparent !important;
+  color: var(--danger-color);
+}
+.btn-xs.btn-danger:hover {
+  background: #eee !important;
+}
+
+.caret {
+  margin-left: 5px;
+  opacity: .9;
+  border-radius: 2px;
+}
+
+.btn-group-sm > .btn, .btn-sm {
+  padding: 5px 10px;
+  font-size: .9rem;
+}
+
+.btn-group-lg > .btn, .btn-lg {
+  padding: 10px 40px;
+  font-size: 1.5rem;
+}
+
+.btn-xs {
+  padding: 2px 7px !important;
+  border-radius: .3em;
+  font-size: .9em;
+}
+
+/* To prevent display trouble in small screen */
+@media (max-width: 800px){
+    a.btn {
+        white-space: normal;
+        word-break: break-word;
+    }
 }
