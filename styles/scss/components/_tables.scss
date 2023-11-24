@@ -1,0 +1,145 @@
+/*
+ * This file is part of the YesWiki Theme bs5margot.
+ *
+ * Authors : see README.md file that was distributed with this source code.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+.table-condensed {
+  & > tbody > tr > td {
+    line-height: 1.8rem;
+    vertical-align: middle;
+    &:first-child {
+      strong,h1,h2,h3,h4,h5,h6 {
+        font-weight: bold;
+        text-transform: capitalize;
+        color: var(--primary-color);
+      }
+    }
+  }
+  thead tr {
+    &> th, & > td {
+      padding: .5em !important;
+    }
+  }
+}
+
+#add-entry-table{
+  .btn-xs {
+    padding: 4px 15px !important;
+    i {
+      margin-right: 8px;
+    }
+  }
+  th:last-child {
+    width: 245px !important;
+  }
+} 
+
+.table-responsive {
+  margin-left: -15px;
+  margin-right: -15px;
+  width: calc(100% + 30px);
+  .row {
+    margin: 0;
+  }
+  @media screen and (max-width: 800px) {
+    border:none !important;
+  }
+}
+
+/* Datatables */
+
+table.dataTable{
+  &.table-condensed {
+    .sorting, .sorting_asc, .sorting_desc{
+      &:after {
+        top: 8px !important;
+        right: 4px !important;
+      }
+    }
+  }
+  .prevent-sorting:after {
+    display: none !important;
+  }
+  td>select {
+    width: 200px !important;
+  }
+}
+
+/* Header */
+.dataTables_header {
+  display: flex;
+  align-items: flex-end;
+  font-size: .9rem;
+  margin-bottom: .3rem !important;
+  & > .col-sm-6:last-child {
+    text-align: right;
+  }
+  input[type=search] {
+    margin-left: 0 !important;
+    font-size: .9rem;
+    height: 2.3rem;
+    padding: .5em;
+  }
+  .input-group-addon {
+    height: 2.3rem;
+    line-height: 2.3rem;
+    padding: 0 11px;
+  }
+}
+
+.dataTables_filter .search-icon:before {
+  font-size: 1rem;
+  vertical-align: middle;
+}
+
+.dataTables_length label {
+  display: flex;
+  align-items: center;
+  select {
+    margin: 0 .5rem;
+    border: 1px solid #dddddd;
+  }
+}
+
+/* footer */
+.dataTables_footer {
+  margin-top: .5rem !important;
+  font-size: .9rem;
+  &.no-pagination {
+    .pagination {
+      display:none;
+    }
+    .dataTables_info {
+      padding-top: 0;
+      padding-bottom: 1rem;
+    }
+  }
+}
+
+.pagination > li {
+  & > a {
+    position: relative;
+    float: left;
+    background-color: transparent;
+    border: 1px solid #dddddd !important;
+    color: var(--primary-color);
+  }
+  &:not(:first-child) > a {
+    border-left: none !important;
+  }
+  &.active {
+    & > a,&:hover > a {
+      background-color: var(--primary-color);
+      color: var(--neutral-light-color);
+    }
+  }
+  &:not(.disabled):not(.active) {
+    &:hover > a, &> a:focus{
+      background-color: #f0f0f0 !important;
+      color: var(--primary-color) !important;
+    }
+  }
+}

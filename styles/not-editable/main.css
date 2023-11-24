@@ -12947,6 +12947,131 @@ section .well {
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+.table-condensed > tbody > tr > td {
+  line-height: 1.8rem;
+  vertical-align: middle;
+}
+.table-condensed > tbody > tr > td:first-child strong, .table-condensed > tbody > tr > td:first-child h1, .table-condensed > tbody > tr > td:first-child h2, .table-condensed > tbody > tr > td:first-child h3, .table-condensed > tbody > tr > td:first-child h4, .table-condensed > tbody > tr > td:first-child h5, .table-condensed > tbody > tr > td:first-child h6 {
+  font-weight: bold;
+  text-transform: capitalize;
+  color: var(--primary-color);
+}
+.table-condensed thead tr > th, .table-condensed thead tr > td {
+  padding: 0.5em !important;
+}
+
+#add-entry-table .btn-xs {
+  padding: 4px 15px !important;
+}
+#add-entry-table .btn-xs i {
+  margin-right: 8px;
+}
+#add-entry-table th:last-child {
+  width: 245px !important;
+}
+
+.table-responsive {
+  margin-left: -15px;
+  margin-right: -15px;
+  width: calc(100% + 30px);
+}
+.table-responsive .row {
+  margin: 0;
+}
+@media screen and (max-width: 800px) {
+  .table-responsive {
+    border: none !important;
+  }
+}
+
+/* Datatables */
+table.dataTable.table-condensed .sorting:after, table.dataTable.table-condensed .sorting_asc:after, table.dataTable.table-condensed .sorting_desc:after {
+  top: 8px !important;
+  right: 4px !important;
+}
+table.dataTable .prevent-sorting:after {
+  display: none !important;
+}
+table.dataTable td > select {
+  width: 200px !important;
+}
+
+/* Header */
+.dataTables_header {
+  display: flex;
+  align-items: flex-end;
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem !important;
+}
+.dataTables_header > .col-sm-6:last-child {
+  text-align: right;
+}
+.dataTables_header input[type=search] {
+  margin-left: 0 !important;
+  font-size: 0.9rem;
+  height: 2.3rem;
+  padding: 0.5em;
+}
+.dataTables_header .input-group-addon {
+  height: 2.3rem;
+  line-height: 2.3rem;
+  padding: 0 11px;
+}
+
+.dataTables_filter .search-icon:before {
+  font-size: 1rem;
+  vertical-align: middle;
+}
+
+.dataTables_length label {
+  display: flex;
+  align-items: center;
+}
+.dataTables_length label select {
+  margin: 0 0.5rem;
+  border: 1px solid #dddddd;
+}
+
+/* footer */
+.dataTables_footer {
+  margin-top: 0.5rem !important;
+  font-size: 0.9rem;
+}
+.dataTables_footer.no-pagination .pagination {
+  display: none;
+}
+.dataTables_footer.no-pagination .dataTables_info {
+  padding-top: 0;
+  padding-bottom: 1rem;
+}
+
+.pagination > li > a {
+  position: relative;
+  float: left;
+  background-color: transparent;
+  border: 1px solid #dddddd !important;
+  color: var(--primary-color);
+}
+.pagination > li:not(:first-child) > a {
+  border-left: none !important;
+}
+.pagination > li.active > a, .pagination > li.active:hover > a {
+  background-color: var(--primary-color);
+  color: var(--neutral-light-color);
+}
+.pagination > li:not(.disabled):not(.active):hover > a, .pagination > li:not(.disabled):not(.active) > a:focus {
+  background-color: #f0f0f0 !important;
+  color: var(--primary-color) !important;
+}
+
+/*
+ * This file is part of the YesWiki Theme bs5margot.
+ *
+ * Authors : see README.md file that was distributed with this source code.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 :root {
   --bs-body-bg: var(--main-bg-color);
   --bs-body-color: var(--main-text-color);
