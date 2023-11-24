@@ -12881,6 +12881,72 @@ section .well {
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+.alert-default, .alert-info {
+  border: none;
+  position: relative;
+  background-color: transparent !important;
+  color: var(--neutral-color) !important;
+  z-index: 0;
+}
+
+.alert-default:before, .alert-info:before {
+  content: " ";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-radius: 0.3rem;
+  opacity: 0.3;
+  z-index: -1;
+}
+
+.alert-default:before {
+  background-color: var(--neutral-color);
+}
+
+.alert-info:before {
+  background-color: var(--primary-color);
+}
+
+.alert-danger, .alert-warning, .alert-success, .alert-secondary-2, .alert-secondary-1, .alert-primary {
+  border: none;
+  border-radius: 0.3rem;
+  color: var(--neutral-light-color);
+}
+
+.alert-primary {
+  background-color: var(--primary-color);
+}
+
+.alert-secondary-1 {
+  background-color: var(--secondary-color-1);
+}
+
+.alert-secondary-2 {
+  background-color: var(--secondary-color-2);
+}
+
+.alert-success {
+  background-color: var(--success-color);
+}
+
+.alert-warning {
+  background-color: var(--warning-color);
+}
+
+.alert-danger {
+  background-color: var(--danger-color);
+}
+
+/*
+ * This file is part of the YesWiki Theme bs5margot.
+ *
+ * Authors : see README.md file that was distributed with this source code.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 :root {
   --bs-body-bg: var(--main-bg-color);
   --bs-body-color: var(--main-text-color);

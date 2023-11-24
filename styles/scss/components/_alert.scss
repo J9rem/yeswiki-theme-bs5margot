@@ -1,0 +1,46 @@
+/*
+ * This file is part of the YesWiki Theme bs5margot.
+ *
+ * Authors : see README.md file that was distributed with this source code.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+ .alert-default, .alert-info {
+  border: none;
+  position: relative;
+  background-color: transparent !important;
+  color:var(--neutral-color) !important;
+  z-index: 0;
+}
+.alert-default:before, .alert-info:before {
+  content: " ";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-radius: .3rem;
+  opacity: .3;
+  z-index: -1;
+}
+.alert-default:before {
+  background-color: var(--neutral-color);
+}
+.alert-info:before {
+  background-color: var(--primary-color);
+}
+
+%alert-common-dark {
+  border: none;
+  border-radius: .3rem;
+  color: var(--neutral-light-color);
+}
+
+@each $name, $color in $margot-theme-colors {
+  .alert-#{$name} {
+    @extend %alert-common-dark;
+    background-color:var(#{$color});
+  }
+}
