@@ -67,17 +67,19 @@
   }
 }
 
-.btn-default {
-  @include margot-btn(--neutral-color,transparent,#eee);
-}
-
-.btn-neutral {
-  @include margot-btn(--neutral-light-color,--neutral-color,--neutral-soft-color);
-}
-
 @each $name, $color in $margot-theme-colors {
-  .btn-#{$name} {
-    @include margot-btn(--neutral-light-color,#{$color},#{$color});
+  @if $name == default {
+    .btn-default {
+      @include margot-btn(--neutral-color,transparent,#eee);
+    }
+  } @else if $name == neutral {
+    .btn-neutral {
+      @include margot-btn(--neutral-light-color,--neutral-color,--neutral-soft-color);
+    }
+  } @else {
+    .btn-#{$name} {
+      @include margot-btn(--neutral-light-color,#{$color},#{$color});
+    }
   }
 }
 

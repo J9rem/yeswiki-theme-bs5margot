@@ -1,0 +1,76 @@
+/*
+ * This file is part of the YesWiki Theme bs5margot.
+ *
+ * Authors : see README.md file that was distributed with this source code.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+.panel-title > .alert-msg {
+  margin-right: 2rem;
+  font-size: .9rem;
+  margin-top: 1px;
+}
+
+@each $name, $color in $margot-theme-colors {
+  .panel-#{$name} {
+    border-color: var(#{$color});
+    --checkbox-color: var(#{$color});
+    & > .card-header {
+      color: var(--neutral-light-color);
+      background-color: var(#{$color});
+      border-color: var(#{$color});
+    }
+  }
+}
+
+.card-header {
+  &[data-toggle=collapse] {
+    --chevron-color: var(--neutral-light-color);
+    position: relative;
+    &:after {
+      content: "";
+      position: absolute;
+      top: 1.3em;
+      right: 1em;
+      border-radius: 3px;
+      opacity: .8;
+      width: .7rem;
+      height: .7rem;
+      border-top: .17rem solid var(--chevron-color);
+      border-left: .17rem solid var(--chevron-color);
+      border-right: .17rem solid transparent;
+      border-bottom: .17rem solid transparent;
+      -webkit-transform: rotate(35deg);
+      transform: rotate(45deg);
+    }
+    &.collapsed:after {
+      top: .9em;
+      border-top: .17rem solid transparent;
+      border-left: .17rem solid transparent;
+      border-right: .17rem solid var(--chevron-color);
+      border-bottom: .17rem solid var(--chevron-color);
+    }
+    &:hover:after {
+      opacity: 1;
+    }
+  }
+  .card-title {
+    font-size: var(--main-text-fontsize);
+    line-height: inherit;
+  }
+}
+
+.panel {
+  @extend .card;
+}
+@each $name in ('header','body','title','subtitle'){
+  .panel-#{$name}{
+    @extend .card-#{$name};
+  }
+}
+
+.panel-heading{
+  @extend .card-header;
+}

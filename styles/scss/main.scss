@@ -34,7 +34,12 @@
     $btn-box-shadow: none,
     $btn-link-color: var(--primary-color),
     $btn-link-hover-color: var(--primary-color),
-    $btn-disabled-opacity: .4
+    $btn-disabled-opacity: .4,
+    // panels
+    $card-border-width: 3px,
+    $card-border-radius: 5px,
+    $card-cap-padding-y: 0.6rem,
+    $card-cap-padding-x: 1rem
 );
 
 $margot-theme-colors: (
@@ -43,7 +48,9 @@ $margot-theme-colors: (
     "secondary-2": --secondary-color-2,
     "success": --success-color,
     "warning": --warning-color,
-    "danger": --danger-color
+    "danger": --danger-color,
+    "default": --neutral-color,
+    "neutral": --neutral-color
 );
 
 @import "partials/_general";
@@ -60,7 +67,10 @@ $margot-theme-colors: (
 @import "components/_section";
 @import "components/_label";
 @import "components/_alert";
-// @import "components/_panel";
+@import "components/_panel";
+// @import "components/_nav";
+// @import "components/_background";
+// @import "components/_text";
 @import "components/_modals";
 @import "components/_forms";
 @import "components/_checkboxes-radio";

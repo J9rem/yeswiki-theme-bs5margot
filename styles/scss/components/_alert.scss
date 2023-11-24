@@ -39,8 +39,10 @@
 }
 
 @each $name, $color in $margot-theme-colors {
-  .alert-#{$name} {
-    @extend %alert-common-dark;
-    background-color:var(#{$color});
+  @if $name != default {
+    .alert-#{$name} {
+      @extend %alert-common-dark;
+      background-color:var(#{$color});
+    }
   }
 }

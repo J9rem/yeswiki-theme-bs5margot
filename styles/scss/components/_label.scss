@@ -13,14 +13,6 @@
   vertical-align: middle;
 }
 
-.label-default {
-  background-color:var(--neutral-color);
-}
-
-.label-neutral {
-  background-color:var(--neutral-color);
-}
-
 @each $name, $color in $margot-theme-colors {
   .label-#{$name} {
     background-color:var(#{$color});

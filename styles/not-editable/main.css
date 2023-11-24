@@ -4302,18 +4302,18 @@ textarea.form-control-lg {
   --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
-.card {
+.card, .panel {
   --bs-card-spacer-y: 1rem;
   --bs-card-spacer-x: 1rem;
   --bs-card-title-spacer-y: 0.5rem;
   --bs-card-title-color: ;
   --bs-card-subtitle-color: ;
-  --bs-card-border-width: var(--bs-border-width);
+  --bs-card-border-width: 3px;
   --bs-card-border-color: var(--bs-border-color-translucent);
-  --bs-card-border-radius: var(--bs-border-radius);
+  --bs-card-border-radius: 5px;
   --bs-card-box-shadow: ;
-  --bs-card-inner-border-radius: calc(var(--bs-border-radius) - (var(--bs-border-width)));
-  --bs-card-cap-padding-y: 0.5rem;
+  --bs-card-inner-border-radius: 2px;
+  --bs-card-cap-padding-y: 0.6rem;
   --bs-card-cap-padding-x: 1rem;
   --bs-card-cap-bg: rgba(var(--bs-body-color-rgb), 0.03);
   --bs-card-cap-color: ;
@@ -4334,41 +4334,42 @@ textarea.form-control-lg {
   border: var(--bs-card-border-width) solid var(--bs-card-border-color);
   border-radius: var(--bs-card-border-radius);
 }
-.card > hr {
+.card > hr, .panel > hr {
   margin-right: 0;
   margin-left: 0;
 }
-.card > .list-group {
+.card > .list-group, .panel > .list-group {
   border-top: inherit;
   border-bottom: inherit;
 }
-.card > .list-group:first-child {
+.card > .list-group:first-child, .panel > .list-group:first-child {
   border-top-width: 0;
   border-top-left-radius: var(--bs-card-inner-border-radius);
   border-top-right-radius: var(--bs-card-inner-border-radius);
 }
-.card > .list-group:last-child {
+.card > .list-group:last-child, .panel > .list-group:last-child {
   border-bottom-width: 0;
   border-bottom-right-radius: var(--bs-card-inner-border-radius);
   border-bottom-left-radius: var(--bs-card-inner-border-radius);
 }
-.card > .card-header + .list-group,
-.card > .list-group + .card-footer {
+.card > .card-header + .list-group, .panel > .card-header + .list-group, .card > .panel-header + .list-group, .panel > .panel-header + .list-group, .card > .panel-heading + .list-group, .panel > .panel-heading + .list-group,
+.card > .list-group + .card-footer,
+.panel > .list-group + .card-footer {
   border-top: 0;
 }
 
-.card-body {
+.card-body, .panel-body {
   flex: 1 1 auto;
   padding: var(--bs-card-spacer-y) var(--bs-card-spacer-x);
   color: var(--bs-card-color);
 }
 
-.card-title {
+.card-title, .panel-title {
   margin-bottom: var(--bs-card-title-spacer-y);
   color: var(--bs-card-title-color);
 }
 
-.card-subtitle {
+.card-subtitle, .panel-subtitle {
   margin-top: calc(-0.5 * var(--bs-card-title-spacer-y));
   margin-bottom: 0;
   color: var(--bs-card-subtitle-color);
@@ -4385,14 +4386,14 @@ textarea.form-control-lg {
   margin-left: var(--bs-card-spacer-x);
 }
 
-.card-header {
+.card-header, .panel-header, .panel-heading {
   padding: var(--bs-card-cap-padding-y) var(--bs-card-cap-padding-x);
   margin-bottom: 0;
   color: var(--bs-card-cap-color);
   background-color: var(--bs-card-cap-bg);
   border-bottom: var(--bs-card-border-width) solid var(--bs-card-border-color);
 }
-.card-header:first-child {
+.card-header:first-child, .panel-header:first-child, .panel-heading:first-child {
   border-radius: var(--bs-card-inner-border-radius) var(--bs-card-inner-border-radius) 0 0;
 }
 
@@ -4450,7 +4451,7 @@ textarea.form-control-lg {
   border-bottom-left-radius: var(--bs-card-inner-border-radius);
 }
 
-.card-group > .card {
+.card-group > .card, .card-group > .panel {
   margin-bottom: var(--bs-card-group-margin);
 }
 @media (min-width: 576px) {
@@ -4458,36 +4459,48 @@ textarea.form-control-lg {
     display: flex;
     flex-flow: row wrap;
   }
-  .card-group > .card {
+  .card-group > .card, .card-group > .panel {
     flex: 1 0 0%;
     margin-bottom: 0;
   }
-  .card-group > .card + .card {
+  .card-group > .card + .card, .card-group > .panel + .card, .card-group > .card + .panel, .card-group > .panel + .panel {
     margin-left: 0;
     border-left: 0;
   }
-  .card-group > .card:not(:last-child) {
+  .card-group > .card:not(:last-child), .card-group > .panel:not(:last-child) {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
   }
-  .card-group > .card:not(:last-child) .card-img-top,
-  .card-group > .card:not(:last-child) .card-header {
+  .card-group > .card:not(:last-child) .card-img-top, .card-group > .panel:not(:last-child) .card-img-top,
+  .card-group > .card:not(:last-child) .card-header,
+  .card-group > .panel:not(:last-child) .card-header,
+  .card-group > .card:not(:last-child) .panel-header,
+  .card-group > .panel:not(:last-child) .panel-header,
+  .card-group > .card:not(:last-child) .panel-heading,
+  .card-group > .panel:not(:last-child) .panel-heading {
     border-top-right-radius: 0;
   }
-  .card-group > .card:not(:last-child) .card-img-bottom,
-  .card-group > .card:not(:last-child) .card-footer {
+  .card-group > .card:not(:last-child) .card-img-bottom, .card-group > .panel:not(:last-child) .card-img-bottom,
+  .card-group > .card:not(:last-child) .card-footer,
+  .card-group > .panel:not(:last-child) .card-footer {
     border-bottom-right-radius: 0;
   }
-  .card-group > .card:not(:first-child) {
+  .card-group > .card:not(:first-child), .card-group > .panel:not(:first-child) {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
   }
-  .card-group > .card:not(:first-child) .card-img-top,
-  .card-group > .card:not(:first-child) .card-header {
+  .card-group > .card:not(:first-child) .card-img-top, .card-group > .panel:not(:first-child) .card-img-top,
+  .card-group > .card:not(:first-child) .card-header,
+  .card-group > .panel:not(:first-child) .card-header,
+  .card-group > .card:not(:first-child) .panel-header,
+  .card-group > .panel:not(:first-child) .panel-header,
+  .card-group > .card:not(:first-child) .panel-heading,
+  .card-group > .panel:not(:first-child) .panel-heading {
     border-top-left-radius: 0;
   }
-  .card-group > .card:not(:first-child) .card-img-bottom,
-  .card-group > .card:not(:first-child) .card-footer {
+  .card-group > .card:not(:first-child) .card-img-bottom, .card-group > .panel:not(:first-child) .card-img-bottom,
+  .card-group > .card:not(:first-child) .card-footer,
+  .card-group > .panel:not(:first-child) .card-footer {
     border-bottom-left-radius: 0;
   }
 }
@@ -12583,43 +12596,10 @@ label.edit-group strong {
   text-decoration: underline;
 }
 
-.btn-danger, .btn-warning, .btn-success, .btn-secondary-2, .btn-secondary-1, .btn-primary, .btn-info, .btn-neutral {
+.btn-neutral, .btn-danger, .btn-warning, .btn-success, .btn-secondary-2, .btn-secondary-1, .btn-primary, .btn-info {
   --bs-btn-color: var(--neutral-light-color);
   --bs-btn-hover-color: var(--neutral-light-color);
   --bs-btn-disabled-color: var(--neutral-light-color);
-}
-
-.btn-default {
-  --bs-btn-color: var(--neutral-color);
-  --bs-btn-hover-color: var(--neutral-color);
-  --bs-btn-disabled-color: var(--neutral-color);
-  --bs-btn-bg: transparent;
-  --bs-btn-border-color: transparent;
-  --bs-btn-active-color: transparent;
-  --bs-btn-disabled-bg: transparent;
-  --bs-btn-disabled-border-color: transparent;
-  --bs-btn-hover-bg: #eee;
-  --bs-btn-hover-border-color: #eee;
-  --bs-btn-active-bg: #eee;
-  --bs-btn-active-border-color: #eee;
-}
-.alert .btn-default {
-  color: var(--neutral-color);
-}
-
-.btn-neutral {
-  --bs-btn-bg: var(--neutral-color);
-  --bs-btn-border-color: var(--neutral-color);
-  --bs-btn-active-color: var(--neutral-color);
-  --bs-btn-disabled-bg: var(--neutral-color);
-  --bs-btn-disabled-border-color: var(--neutral-color);
-  --bs-btn-hover-bg: var(--neutral-soft-color);
-  --bs-btn-hover-border-color: var(--neutral-soft-color);
-  --bs-btn-active-bg: var(--neutral-soft-color);
-  --bs-btn-active-border-color: var(--neutral-soft-color);
-}
-.alert .btn-neutral {
-  color: var(--neutral-light-color);
 }
 
 .btn-primary, .btn-info {
@@ -12709,6 +12689,39 @@ label.edit-group strong {
   --bs-btn-active-border-color: var(--danger-color);
 }
 .alert .btn-danger {
+  color: var(--neutral-light-color);
+}
+
+.btn-default {
+  --bs-btn-color: var(--neutral-color);
+  --bs-btn-hover-color: var(--neutral-color);
+  --bs-btn-disabled-color: var(--neutral-color);
+  --bs-btn-bg: transparent;
+  --bs-btn-border-color: transparent;
+  --bs-btn-active-color: transparent;
+  --bs-btn-disabled-bg: transparent;
+  --bs-btn-disabled-border-color: transparent;
+  --bs-btn-hover-bg: #eee;
+  --bs-btn-hover-border-color: #eee;
+  --bs-btn-active-bg: #eee;
+  --bs-btn-active-border-color: #eee;
+}
+.alert .btn-default {
+  color: var(--neutral-color);
+}
+
+.btn-neutral {
+  --bs-btn-bg: var(--neutral-color);
+  --bs-btn-border-color: var(--neutral-color);
+  --bs-btn-active-color: var(--neutral-color);
+  --bs-btn-disabled-bg: var(--neutral-color);
+  --bs-btn-disabled-border-color: var(--neutral-color);
+  --bs-btn-hover-bg: var(--neutral-soft-color);
+  --bs-btn-hover-border-color: var(--neutral-soft-color);
+  --bs-btn-active-bg: var(--neutral-soft-color);
+  --bs-btn-active-border-color: var(--neutral-soft-color);
+}
+.alert .btn-neutral {
   color: var(--neutral-light-color);
 }
 
@@ -12832,14 +12845,6 @@ section .well {
   vertical-align: middle;
 }
 
-.label-default {
-  background-color: var(--neutral-color);
-}
-
-.label-neutral {
-  background-color: var(--neutral-color);
-}
-
 .label-primary, .label-info {
   background-color: var(--primary-color);
 }
@@ -12862,6 +12867,14 @@ section .well {
 
 .label-danger {
   background-color: var(--danger-color);
+}
+
+.label-default {
+  background-color: var(--neutral-color);
+}
+
+.label-neutral {
+  background-color: var(--neutral-color);
 }
 
 .label-info {
@@ -12909,7 +12922,7 @@ section .well {
   background-color: var(--primary-color);
 }
 
-.alert-danger, .alert-warning, .alert-success, .alert-secondary-2, .alert-secondary-1, .alert-primary {
+.alert-neutral, .alert-danger, .alert-warning, .alert-success, .alert-secondary-2, .alert-secondary-1, .alert-primary {
   border: none;
   border-radius: 0.3rem;
   color: var(--neutral-light-color);
@@ -12937,6 +12950,139 @@ section .well {
 
 .alert-danger {
   background-color: var(--danger-color);
+}
+
+.alert-neutral {
+  background-color: var(--neutral-color);
+}
+
+/*
+ * This file is part of the YesWiki Theme bs5margot.
+ *
+ * Authors : see README.md file that was distributed with this source code.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+.panel-title > .alert-msg {
+  margin-right: 2rem;
+  font-size: 0.9rem;
+  margin-top: 1px;
+}
+
+.panel-primary {
+  border-color: var(--primary-color);
+  --checkbox-color: var(--primary-color);
+}
+.panel-primary > .card-header, .panel-primary > .panel-heading, .panel-primary > .panel-header {
+  color: var(--neutral-light-color);
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.panel-secondary-1 {
+  border-color: var(--secondary-color-1);
+  --checkbox-color: var(--secondary-color-1);
+}
+.panel-secondary-1 > .card-header, .panel-secondary-1 > .panel-heading, .panel-secondary-1 > .panel-header {
+  color: var(--neutral-light-color);
+  background-color: var(--secondary-color-1);
+  border-color: var(--secondary-color-1);
+}
+
+.panel-secondary-2 {
+  border-color: var(--secondary-color-2);
+  --checkbox-color: var(--secondary-color-2);
+}
+.panel-secondary-2 > .card-header, .panel-secondary-2 > .panel-heading, .panel-secondary-2 > .panel-header {
+  color: var(--neutral-light-color);
+  background-color: var(--secondary-color-2);
+  border-color: var(--secondary-color-2);
+}
+
+.panel-success {
+  border-color: var(--success-color);
+  --checkbox-color: var(--success-color);
+}
+.panel-success > .card-header, .panel-success > .panel-heading, .panel-success > .panel-header {
+  color: var(--neutral-light-color);
+  background-color: var(--success-color);
+  border-color: var(--success-color);
+}
+
+.panel-warning {
+  border-color: var(--warning-color);
+  --checkbox-color: var(--warning-color);
+}
+.panel-warning > .card-header, .panel-warning > .panel-heading, .panel-warning > .panel-header {
+  color: var(--neutral-light-color);
+  background-color: var(--warning-color);
+  border-color: var(--warning-color);
+}
+
+.panel-danger {
+  border-color: var(--danger-color);
+  --checkbox-color: var(--danger-color);
+}
+.panel-danger > .card-header, .panel-danger > .panel-heading, .panel-danger > .panel-header {
+  color: var(--neutral-light-color);
+  background-color: var(--danger-color);
+  border-color: var(--danger-color);
+}
+
+.panel-default {
+  border-color: var(--neutral-color);
+  --checkbox-color: var(--neutral-color);
+}
+.panel-default > .card-header, .panel-default > .panel-heading, .panel-default > .panel-header {
+  color: var(--neutral-light-color);
+  background-color: var(--neutral-color);
+  border-color: var(--neutral-color);
+}
+
+.panel-neutral {
+  border-color: var(--neutral-color);
+  --checkbox-color: var(--neutral-color);
+}
+.panel-neutral > .card-header, .panel-neutral > .panel-heading, .panel-neutral > .panel-header {
+  color: var(--neutral-light-color);
+  background-color: var(--neutral-color);
+  border-color: var(--neutral-color);
+}
+
+.card-header[data-toggle=collapse], [data-toggle=collapse].panel-heading, [data-toggle=collapse].panel-header {
+  --chevron-color: var(--neutral-light-color);
+  position: relative;
+}
+.card-header[data-toggle=collapse]:after, [data-toggle=collapse].panel-heading:after, [data-toggle=collapse].panel-header:after {
+  content: "";
+  position: absolute;
+  top: 1.3em;
+  right: 1em;
+  border-radius: 3px;
+  opacity: 0.8;
+  width: 0.7rem;
+  height: 0.7rem;
+  border-top: 0.17rem solid var(--chevron-color);
+  border-left: 0.17rem solid var(--chevron-color);
+  border-right: 0.17rem solid transparent;
+  border-bottom: 0.17rem solid transparent;
+  -webkit-transform: rotate(35deg);
+  transform: rotate(45deg);
+}
+.card-header[data-toggle=collapse].collapsed:after, [data-toggle=collapse].collapsed.panel-heading:after, [data-toggle=collapse].collapsed.panel-header:after {
+  top: 0.9em;
+  border-top: 0.17rem solid transparent;
+  border-left: 0.17rem solid transparent;
+  border-right: 0.17rem solid var(--chevron-color);
+  border-bottom: 0.17rem solid var(--chevron-color);
+}
+.card-header[data-toggle=collapse]:hover:after, [data-toggle=collapse].panel-heading:hover:after, [data-toggle=collapse].panel-header:hover:after, a.card-header[data-toggle=collapse]:focus:after, a[data-toggle=collapse].panel-heading:focus:after, a[data-toggle=collapse].panel-header:focus:after {
+  opacity: 1;
+}
+.card-header .card-title, .panel-heading .card-title, .card-header .panel-title, .panel-heading .panel-title, .panel-header .card-title, .panel-header .panel-title {
+  font-size: var(--main-text-fontsize);
+  line-height: inherit;
 }
 
 /*
