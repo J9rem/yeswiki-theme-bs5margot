@@ -1,0 +1,24 @@
+/*
+ * This file is part of the YesWiki Theme bs5margot.
+ *
+ * Authors : see README.md file that was distributed with this source code.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+@each $name, $color in $margot-theme-colors {
+  .text-#{$name} {
+    color: var(#{$color});
+  }
+}
+.text-white {
+  color: var(--neutral-light-color);
+}
+.text-soft {
+  color: var(--neutral-soft-color);
+}
+.text-info {
+  @extend .text-primary;
+  opacity: .6;
+}

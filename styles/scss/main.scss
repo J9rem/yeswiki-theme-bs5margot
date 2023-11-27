@@ -71,8 +71,8 @@ $margot-theme-colors: (
 @import "components/_alert";
 @import "components/_panel";
 @import "components/_nav";
-// @import "components/_background";
-// @import "components/_text";
+@import "components/_backgrounds";
+@import "components/_text";
 @import "components/_modals";
 @import "components/_forms";
 @import "components/_checkboxes-radio";
