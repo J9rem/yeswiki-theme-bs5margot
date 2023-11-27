@@ -31,7 +31,7 @@ The most known way to install it is:
  - on your developper computer, install [`nodejs`](https://nodejs.org/en/download) (with `npm`)
  - global usage:
    - install `sass` from command line : `npm install -g sass`
-   - start the watcher `sass --watch ./styles/scss/main.scss ./styles/not-editable/main.css`
+   - start the watcher `sass --watch ./styles/scss/main.scss ./styles/not-editable/main.min.css --style compressed`
  - local usage:
    - install [`yarn`](https://yarnpkg.com/)
    - start watcher from command line from root folder of this project `yarn watch-css`
