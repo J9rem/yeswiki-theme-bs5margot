@@ -64,6 +64,7 @@
 
 .panel {
   @extend .card;
+  margin-bottom: 20px;
 }
 @each $name in ('header','body','title','subtitle'){
   .panel-#{$name}{
@@ -73,4 +74,20 @@
 
 .panel-heading{
   @extend .card-header;
+}
+.panel-group {
+  @extend .accordion;
+  & > .panel {
+    @extend .accordion-item;
+    margin-bottom: 8px;
+    & > .panel-heading {
+      @extend .accordion-header;
+    }
+    & > .panel-collapse {
+      @extend .accordion-collapse;
+      & > .panel-body {
+        @extend .accordion-body;
+      }
+    }
+  }
 }

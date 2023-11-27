@@ -4505,7 +4505,7 @@ textarea.form-control-lg {
   }
 }
 
-.accordion {
+.accordion, .panel-group {
   --bs-accordion-color: var(--bs-body-color);
   --bs-accordion-bg: var(--bs-body-bg);
   --bs-accordion-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, border-radius 0.15s ease;
@@ -4585,58 +4585,58 @@ textarea.form-control-lg {
   box-shadow: var(--bs-accordion-btn-focus-box-shadow);
 }
 
-.accordion-header {
+.accordion-header, .panel-group > .panel > .panel-heading {
   margin-bottom: 0;
 }
 
-.accordion-item {
+.accordion-item, .panel-group > .panel {
   color: var(--bs-accordion-color);
   background-color: var(--bs-accordion-bg);
   border: var(--bs-accordion-border-width) solid var(--bs-accordion-border-color);
 }
-.accordion-item:first-of-type {
+.accordion-item:first-of-type, .panel-group > .panel:first-of-type {
   border-top-left-radius: var(--bs-accordion-border-radius);
   border-top-right-radius: var(--bs-accordion-border-radius);
 }
-.accordion-item:first-of-type .accordion-button {
+.accordion-item:first-of-type .accordion-button, .panel-group > .panel:first-of-type .accordion-button {
   border-top-left-radius: var(--bs-accordion-inner-border-radius);
   border-top-right-radius: var(--bs-accordion-inner-border-radius);
 }
-.accordion-item:not(:first-of-type) {
+.accordion-item:not(:first-of-type), .panel-group > .panel:not(:first-of-type) {
   border-top: 0;
 }
-.accordion-item:last-of-type {
+.accordion-item:last-of-type, .panel-group > .panel:last-of-type {
   border-bottom-right-radius: var(--bs-accordion-border-radius);
   border-bottom-left-radius: var(--bs-accordion-border-radius);
 }
-.accordion-item:last-of-type .accordion-button.collapsed {
+.accordion-item:last-of-type .accordion-button.collapsed, .panel-group > .panel:last-of-type .accordion-button.collapsed {
   border-bottom-right-radius: var(--bs-accordion-inner-border-radius);
   border-bottom-left-radius: var(--bs-accordion-inner-border-radius);
 }
-.accordion-item:last-of-type .accordion-collapse {
+.accordion-item:last-of-type .accordion-collapse, .panel-group > .panel:last-of-type .accordion-collapse, .accordion-item:last-of-type .panel-group > .panel > .panel-collapse, .panel-group > .panel:last-of-type .panel-group > .panel > .panel-collapse {
   border-bottom-right-radius: var(--bs-accordion-border-radius);
   border-bottom-left-radius: var(--bs-accordion-border-radius);
 }
 
-.accordion-body {
+.accordion-body, .panel-group > .panel > .panel-collapse > .panel-body {
   padding: var(--bs-accordion-body-padding-y) var(--bs-accordion-body-padding-x);
 }
 
-.accordion-flush .accordion-collapse {
+.accordion-flush .accordion-collapse, .accordion-flush .panel-group > .panel > .panel-collapse {
   border-width: 0;
 }
-.accordion-flush .accordion-item {
+.accordion-flush .accordion-item, .accordion-flush .panel-group > .panel {
   border-right: 0;
   border-left: 0;
   border-radius: 0;
 }
-.accordion-flush .accordion-item:first-child {
+.accordion-flush .accordion-item:first-child, .accordion-flush .panel-group > .panel:first-child {
   border-top: 0;
 }
-.accordion-flush .accordion-item:last-child {
+.accordion-flush .accordion-item:last-child, .accordion-flush .panel-group > .panel:last-child {
   border-bottom: 0;
 }
-.accordion-flush .accordion-item .accordion-button, .accordion-flush .accordion-item .accordion-button.collapsed {
+.accordion-flush .accordion-item .accordion-button, .accordion-flush .panel-group > .panel .accordion-button, .accordion-flush .accordion-item .accordion-button.collapsed {
   border-radius: 0;
 }
 
@@ -13085,6 +13085,13 @@ section .well {
   line-height: inherit;
 }
 
+.panel {
+  margin-bottom: 20px;
+}
+
+.panel-group > .panel {
+  margin-bottom: 8px;
+}
 /*
  * This file is part of the YesWiki Theme bs5margot.
  *
