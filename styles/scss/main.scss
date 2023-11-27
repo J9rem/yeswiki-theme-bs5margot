@@ -81,10 +81,10 @@ $margot-theme-colors: (
 // templates
 // @import "templates/calendar";
 @import "templates/agenda";
-// @import "templates/facette";
+@import "templates/facette";
 // @import "templates/accordion";
 @import "templates/search";
-// @import "templates/annuaire";
+@import "templates/annuaire";
 
 @import "partials/_converting_variables";
 

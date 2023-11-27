@@ -1,0 +1,66 @@
+/*
+ * This file is part of the YesWiki Theme bs5margot.
+ *
+ * Authors : see README.md file that was distributed with this source code.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+ .annuaire-title {
+  font-size: 2.5rem;
+  text-align: center;
+  i {
+    font-size: 3.5rem;
+    vertical-align: middle;
+    margin-right: 10px;
+  }
+}
+.bazar-list #lettres_init {
+  margin-top: -.5rem;
+  a {
+    color: var(--neutral-color);
+    font-size: 1.5rem;
+    margin: 0;
+    padding: 0 8px;
+    transition: all .1s;
+    :hover,:focus {
+      background-color: var(--primary-color);
+      color: var(--neutral-light-color);
+      border-radius: 6px;
+      text-decoration: none;
+    }
+  }
+}
+
+.bazar-list .wrapper_nombre_membres {
+  background-color: var(--primary-color);
+  height: 12px;
+  border-radius: 12px;
+  margin-top: .8rem;
+  .nombre_membres {
+    display: none;
+  }
+}
+
+.annuaire-fiches-container {
+  .bazar-entry {
+    color: var(--neutral-color);
+    transition: color .2s;
+    &:hover {
+      text-decoration: none;
+      color: var(--primary-color);
+    }
+  }
+  .letter-title {
+    margin-bottom: .5rem;
+    span {
+      background-color: var(--secondary-color-1);
+      color: var(--neutral-light-color);
+      border-radius: 6px;
+      padding: 2px 8px;
+      font-size: 1.3rem;
+      font-weight: 500;
+    }
+  }
+}

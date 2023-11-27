@@ -1,0 +1,29 @@
+/*
+ * This file is part of the YesWiki Theme bs5margot.
+ *
+ * Authors : see README.md file that was distributed with this source code.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+ .results-info {
+  margin-top: 0;
+  margin-bottom: 12px;
+  text-align: left;
+  opacity: 1;
+}
+.filter-box .checkbox {
+  margin-left: 1em;
+}
+
+.results-container .filter-box:nth-of-type(2),
+.results-container .filter-box:nth-of-type(5) {
+  --neutral-color: var(--secondary-color-1);
+}
+.results-container .filter-box:nth-of-type(3),
+.results-container .filter-box:nth-of-type(6) {
+  --neutral-color: var(--secondary-color-2);
+}
+.filtertext {
+  margin-bottom: 20px;
+}
