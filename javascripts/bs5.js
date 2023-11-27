@@ -19,11 +19,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
   const convertingAddingClass= {
     '.collapse.in': 'show',
-    // '.panel-group': 'accordion',
-    // '.panel-group > .panel': 'accordion-item',
-    // '.panel-group > .panel > .panel-heading': ['accordion-header','accordion-button'],
-    // '.panel-group > .panel > .panel-collapse': 'accordion-collapse',
-    // '.panel-group > .panel > .panel-collapse > .panel-body': 'accordion-body',
+    '.panel-group': 'accordion',
+    '.panel-group > .panel': 'accordion-item',
+    '.panel-group > .panel > .panel-heading': ['accordion-header','accordion-button'],
+    '.panel-group > .panel > .panel-collapse': 'accordion-collapse',
+    '.panel-group > .panel > .panel-collapse > .panel-body': 'accordion-body',
   }
   Object.entries(convertingAddingClass)
     .forEach(([origin,newValue])=>{
