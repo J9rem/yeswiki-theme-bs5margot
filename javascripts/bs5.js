@@ -19,11 +19,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
   const convertingAddingClass= {
     '.collapse.in': 'show',
-    '.panel-group': 'accordion',
-    '.panel-group > .panel': 'accordion-item',
-    '.panel-group > .panel > .panel-heading': ['accordion-header','accordion-button'],
-    '.panel-group > .panel > .panel-collapse': 'accordion-collapse',
-    '.panel-group > .panel > .panel-collapse > .panel-body': 'accordion-body',
+    // '.panel-group': 'accordion',
+    // '.panel-group > .panel': 'accordion-item',
+    // '.panel-group > .panel > .panel-heading': ['accordion-header','accordion-button'],
+    // '.panel-group > .panel > .panel-collapse': 'accordion-collapse',
+    // '.panel-group > .panel > .panel-collapse > .panel-body': 'accordion-body',
   }
   Object.entries(convertingAddingClass)
     .forEach(([origin,newValue])=>{
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
     })
   const convertingAttrs = {
     'data-toggle': {
-      criteron: 'collapse',
+      criteron: ['collapse','tab'],
       newname: 'data-bs-toggle',
       replace: true
     },
@@ -51,12 +51,18 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   Object.entries(convertingAttrs)
     .forEach(([origin,data])=>{
-        document.querySelectorAll(`[${origin}${data?.criteron?.length > 0 ? `="${data.criteron}"` : ''}]`).forEach((e)=>{
+        const query = 
+          (
+            Array.isArray(data?.criteron)
+            ? data.criteron
+            : ([data?.criteron ?? ''])
+          ).map((crit)=>`[${origin}${crit?.length > 0 ? `="${crit}"` : ''}]`)
+          .join(',')
+        document.querySelectorAll(query).forEach((e)=>{
           if (data?.remove !== true){
             e.setAttribute(
               data.newname,
               data?.newcriteron
-                ?? data?.criteron
                 ?? e.getAttribute(origin)
             )
           }
