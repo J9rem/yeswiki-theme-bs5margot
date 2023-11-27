@@ -1,0 +1,151 @@
+/*
+ * This file is part of the YesWiki Theme bs5margot.
+ *
+ * Authors : see README.md file that was distributed with this source code.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+.bazar-list > .list {
+  & > .panel-group,& > .accordion-group {
+    & > .panel {
+      &.panel-default {
+        border: none;
+        background-color: transparent;
+        transition: border .3s, margin .3s, padding .3s;
+        padding: 0;
+        border: .3rem solid transparent;
+        box-shadow: none;
+        >.panel-heading {
+          color: var(--neutral-color);
+          background-color: transparent;
+          border-color: var(--neutral-soft-color);
+          transition: border .3s, margin .3s;
+        }
+      }
+      & > .panel-heading .bazar-list .panel .panel-collapse,
+      & > .panel-collapse {
+        cursor: default;
+        & > .panel-body {
+          border: none;
+          padding: 0;
+          .BAZ_fiche_titre {
+            display: none;
+          }
+          .BAZ_fiche_info {
+            margin-left: -.9rem;
+            margin-right: -.9rem;
+            padding: .9rem;
+            border-top: 1px dashed var(--neutral-soft-color);
+          }
+        }
+      }
+      &:not(.collapsed) {
+        border-color: var(--primary-color);
+        border-radius: .5em;
+        margin-top: .6rem !important;
+        padding: 0 .9rem;
+        & > .panel-heading {
+          border: none !important;
+          & > .panel-title {
+            color: var(--primary-color);
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+            margin-bottom: .8rem;
+          }
+        }
+        & +.panel .panel-heading {
+          border-top: none !important;
+        }
+      }
+      & > .panel-heading {
+        border: none;
+        padding: 1.2rem 0 0 0;
+        &[data-bs-toggle=collapse] {
+          --chevron-color: var(--neutral-soft-color);
+          &:hover {
+            --chevron-color: var(--primary-color);
+          }
+          &:after {
+            transition: border-color .2s;
+            top: 2rem;
+            right: .5em;
+          }
+        }
+        & > .panel-title {
+          font-size: 1rem;
+          transition: all .3s;
+          padding-right: 2.2rem;
+        }
+        &.collapsed[data-bs-toggle=collapse]:after {
+          top: 1.4rem;
+        }
+        &:hover {
+          & > .panel-title,.icon-chevron{
+            color: var(--primary-color);
+          }
+        }
+      }
+      &:not(:first-child) > .panel-heading {
+        border-top: 1px solid var(--neutral-soft-color);
+        border-radius: 0;
+      }
+      &:last-child > .panel-heading {
+        padding-bottom: .5rem;
+        border-bottom: 1px solid var(--neutral-soft-color);
+      }
+      .BAZ_label {
+        color: var(--neutral-color);
+        font-weight: bold !important;
+        margin: 0;
+        font-size: inherit;
+      }
+    }
+  }
+}
+
+.accordion-template-container {
+  margin: -.6rem -.6rem -.6rem 0;
+}
+
+@media (max-width: 800px) {
+  .accordion-template-container {
+    margin: -1.1rem;
+    margin-bottom: .5rem;
+  }
+
+  .bazar-list .panel-heading {
+    padding-top: .9rem;
+  }
+
+  .bazar-list .bazar-entry.collapsed {
+    border-top-width: 0 !important;
+  }
+
+  .bazar-list .panel-heading[data-toggle=collapse]:after {
+    right: .2rem;
+  }
+
+  .bazar-list .panel-heading.collapsed[data-toggle=collapse]:after {
+    top: 1.2rem;
+  }
+
+  .BAZ_fiche_info .btn-mini>span {
+    display: none;
+  }
+}
+
+/* List Dynamic */
+.bazar-list.dynamic .panel:not(.collapsed) .panel-title {
+  margin-bottom: 0;
+}
+
+.bazar-list.dynamic .panel-heading:not(.collapsed)[data-toggle=collapse]:after {
+  top: 1.8rem;
+}
+
+/* fix for retro compatibility with cercopitheque */
+.accordion-group .panel-heading.collapsed .panel-title::after {
+  content: "";
+}
