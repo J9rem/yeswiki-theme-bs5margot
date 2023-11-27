@@ -16,5 +16,37 @@ document.addEventListener('DOMContentLoaded', function() {
   // manage dropdown 
   $(".dropdown-toggle").attr("data-bs-toggle","dropdown").attr("role","button").attr("aria-expanded","false")
   $(".dropdown-menu > li > a").addClass("dropdown-item")
-   
-});
+
+  const convertingAddingClass= {
+    '.collapse.in': 'show'
+  }
+  Object.entries(convertingAddingClass)
+    .forEach(([origin,newValue])=>{
+      document.querySelectorAll(origin).forEach((e)=>{
+        e.classList.add(newValue)
+      })
+    })
+  const convertingAttrs = {
+    'data-toggle': {
+      criteron: 'collapse',
+      newname: 'data-bs-toggle'
+    },
+    'data-parent': {
+      newname: 'data-bs-parent'
+    },
+    'data-target': {
+      newname: 'data-bs-target'
+    }
+  }
+  Object.entries(convertingAttrs)
+    .forEach(([origin,data])=>{
+        document.querySelectorAll(`[${origin}${data?.criteron?.length > 0 ? `="${data.criteron}"` : ''}]`).forEach((e)=>{
+          e.setAttribute(
+            data.newname,
+            data?.newcriteron
+              ?? data?.criteron
+              ?? e.getAttribute(origin)
+          )
+      })
+    })
+})
