@@ -39,7 +39,9 @@
     $card-border-width: 3px,
     $card-border-radius: 5px,
     $card-cap-padding-y: 0.6rem,
-    $card-cap-padding-x: 1rem
+    $card-cap-padding-x: 1rem,
+    //navs
+    $nav-link-color: var(--neutral-color)
 );
 
 $margot-theme-colors: (
@@ -68,7 +70,7 @@ $margot-theme-colors: (
 @import "components/_label";
 @import "components/_alert";
 @import "components/_panel";
-// @import "components/_nav";
+@import "components/_nav";
 // @import "components/_background";
 // @import "components/_text";
 @import "components/_modals";

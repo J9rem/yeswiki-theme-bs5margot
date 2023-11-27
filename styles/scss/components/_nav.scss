@@ -1,0 +1,33 @@
+/*
+ * This file is part of the YesWiki Theme bs5margot.
+ *
+ * Authors : see README.md file that was distributed with this source code.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+%a-for-nav {
+  color: var(--neutral-light-color);
+  background-color: var(--primary-color);
+}
+
+.nav {
+  &.nav-tabs, &.nav-pills {
+    & > li {
+      @extend .nav-item;
+      & > a {
+        @extend .nav-link;
+        &:focus,&:hover{
+          @extend %a-for-nav;
+        }
+        i {
+          margin-right: 8px;
+        }
+      }
+      &.active > a{
+        @extend %a-for-nav;
+      }
+    }
+  }
+}

@@ -3744,7 +3744,7 @@ textarea.form-control-lg {
   --bs-nav-link-padding-x: 1rem;
   --bs-nav-link-padding-y: 0.5rem;
   --bs-nav-link-font-weight: ;
-  --bs-nav-link-color: var(--bs-link-color);
+  --bs-nav-link-color: var(--neutral-color);
   --bs-nav-link-hover-color: var(--bs-link-hover-color);
   --bs-nav-link-disabled-color: var(--bs-secondary-color);
   display: flex;
@@ -3754,7 +3754,7 @@ textarea.form-control-lg {
   list-style: none;
 }
 
-.nav-link {
+.nav-link, .nav.nav-tabs > li > a, .nav.nav-pills > li > a {
   display: block;
   padding: var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x);
   font-size: var(--bs-nav-link-font-size);
@@ -3765,19 +3765,19 @@ textarea.form-control-lg {
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
 @media (prefers-reduced-motion: reduce) {
-  .nav-link {
+  .nav-link, .nav.nav-tabs > li > a, .nav.nav-pills > li > a {
     transition: none;
   }
 }
-.nav-link:hover, .nav-link:focus {
+.nav-link:hover, .nav.nav-tabs > li > a:hover, .nav.nav-pills > li > a:hover, .nav.nav-tabs > li > a:focus, .nav.nav-pills > li > a:focus, .nav-link:focus {
   color: var(--bs-nav-link-hover-color);
   text-decoration: none;
 }
-.nav-link:focus-visible {
+.nav-link:focus-visible, .nav.nav-tabs > li > a:focus-visible, .nav.nav-pills > li > a:focus-visible {
   outline: 0;
   box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
 }
-.nav-link.disabled, .nav-link:disabled {
+.nav-link.disabled, .nav.nav-tabs > li > a.disabled, .nav.nav-pills > li > a.disabled, .nav-link:disabled, .nav.nav-tabs > li > a:disabled, .nav.nav-pills > li > a:disabled {
   color: var(--bs-nav-link-disabled-color);
   pointer-events: none;
   cursor: default;
@@ -3793,18 +3793,26 @@ textarea.form-control-lg {
   --bs-nav-tabs-link-active-border-color: var(--bs-border-color) var(--bs-border-color) var(--bs-body-bg);
   border-bottom: var(--bs-nav-tabs-border-width) solid var(--bs-nav-tabs-border-color);
 }
-.nav-tabs .nav-link {
+.nav-tabs .nav-link, .nav.nav-tabs > li > a, .nav-tabs .nav.nav-pills > li > a {
   margin-bottom: calc(-1 * var(--bs-nav-tabs-border-width));
   border: var(--bs-nav-tabs-border-width) solid transparent;
   border-top-left-radius: var(--bs-nav-tabs-border-radius);
   border-top-right-radius: var(--bs-nav-tabs-border-radius);
 }
-.nav-tabs .nav-link:hover, .nav-tabs .nav-link:focus {
+.nav-tabs .nav-link:hover, .nav.nav-tabs > li > a:hover, .nav-tabs .nav.nav-pills > li > a:hover, .nav.nav-tabs > li > a:focus, .nav-tabs .nav.nav-pills > li > a:focus, .nav-tabs .nav-link:focus {
   isolation: isolate;
   border-color: var(--bs-nav-tabs-link-hover-border-color);
 }
-.nav-tabs .nav-link.active,
-.nav-tabs .nav-item.show .nav-link {
+.nav-tabs .nav-link.active, .nav.nav-tabs > li > a.active, .nav-tabs .nav.nav-pills > li > a.active,
+.nav-tabs .nav-item.show .nav-link,
+.nav.nav-tabs > li.show .nav-link,
+.nav-tabs .nav.nav-pills > li.show .nav-link,
+.nav-tabs .nav-item.show .nav.nav-tabs > li > a,
+.nav.nav-tabs > li.show .nav.nav-tabs > li > a,
+.nav-tabs .nav.nav-pills > li.show .nav.nav-tabs > li > a,
+.nav-tabs .nav-item.show .nav.nav-pills > li > a,
+.nav.nav-tabs > li.show .nav.nav-pills > li > a,
+.nav-tabs .nav.nav-pills > li.show .nav.nav-pills > li > a {
   color: var(--bs-nav-tabs-link-active-color);
   background-color: var(--bs-nav-tabs-link-active-bg);
   border-color: var(--bs-nav-tabs-link-active-border-color);
@@ -3820,11 +3828,13 @@ textarea.form-control-lg {
   --bs-nav-pills-link-active-color: #fff;
   --bs-nav-pills-link-active-bg: #0d6efd;
 }
-.nav-pills .nav-link {
+.nav-pills .nav-link, .nav-pills .nav.nav-tabs > li > a, .nav.nav-pills > li > a {
   border-radius: var(--bs-nav-pills-border-radius);
 }
-.nav-pills .nav-link.active,
-.nav-pills .show > .nav-link {
+.nav-pills .nav-link.active, .nav-pills .nav.nav-tabs > li > a.active, .nav.nav-pills > li > a.active,
+.nav-pills .show > .nav-link,
+.nav-pills .nav.nav-tabs > li.show > a,
+.nav.nav-pills > li.show > a {
   color: var(--bs-nav-pills-link-active-color);
   background-color: var(--bs-nav-pills-link-active-bg);
 }
@@ -3835,36 +3845,46 @@ textarea.form-control-lg {
   --bs-nav-underline-link-active-color: var(--bs-emphasis-color);
   gap: var(--bs-nav-underline-gap);
 }
-.nav-underline .nav-link {
+.nav-underline .nav-link, .nav-underline .nav.nav-tabs > li > a, .nav-underline .nav.nav-pills > li > a {
   padding-right: 0;
   padding-left: 0;
   border-bottom: var(--bs-nav-underline-border-width) solid transparent;
 }
-.nav-underline .nav-link:hover, .nav-underline .nav-link:focus {
+.nav-underline .nav-link:hover, .nav-underline .nav.nav-tabs > li > a:hover, .nav-underline .nav.nav-pills > li > a:hover, .nav-underline .nav.nav-tabs > li > a:focus, .nav-underline .nav.nav-pills > li > a:focus, .nav-underline .nav-link:focus {
   border-bottom-color: currentcolor;
 }
-.nav-underline .nav-link.active,
-.nav-underline .show > .nav-link {
+.nav-underline .nav-link.active, .nav-underline .nav.nav-tabs > li > a.active, .nav-underline .nav.nav-pills > li > a.active,
+.nav-underline .show > .nav-link,
+.nav-underline .nav.nav-tabs > li.show > a,
+.nav-underline .nav.nav-pills > li.show > a {
   font-weight: 700;
   color: var(--bs-nav-underline-link-active-color);
   border-bottom-color: currentcolor;
 }
 
-.nav-fill > .nav-link,
-.nav-fill .nav-item {
+.nav-fill > .nav-link, .nav.nav-tabs > li.nav-fill > a, .nav.nav-pills > li.nav-fill > a,
+.nav-fill .nav-item,
+.nav-fill .nav.nav-tabs > li,
+.nav-fill .nav.nav-pills > li {
   flex: 1 1 auto;
   text-align: center;
 }
 
-.nav-justified > .nav-link,
-.nav-justified .nav-item {
+.nav-justified > .nav-link, .nav.nav-tabs > li.nav-justified > a, .nav.nav-pills > li.nav-justified > a,
+.nav-justified .nav-item,
+.nav-justified .nav.nav-tabs > li,
+.nav-justified .nav.nav-pills > li {
   flex-basis: 0;
   flex-grow: 1;
   text-align: center;
 }
 
-.nav-fill .nav-item .nav-link,
-.nav-justified .nav-item .nav-link {
+.nav-fill .nav-item .nav-link, .nav-fill .nav.nav-tabs > li .nav-link, .nav-fill .nav.nav-pills > li .nav-link, .nav-fill .nav.nav-tabs > li > a, .nav-fill .nav.nav-pills > li > a,
+.nav-justified .nav-item .nav-link,
+.nav-justified .nav.nav-tabs > li .nav-link,
+.nav-justified .nav.nav-pills > li .nav-link,
+.nav-justified .nav.nav-tabs > li > a,
+.nav-justified .nav.nav-pills > li > a {
   width: 100%;
 }
 
@@ -3941,7 +3961,7 @@ textarea.form-control-lg {
   margin-bottom: 0;
   list-style: none;
 }
-.navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
+.navbar-nav .nav-link.active, .navbar-nav .nav.nav-tabs > li > a.active, .navbar-nav .nav.nav-pills > li > a.active, .navbar-nav .nav-link.show, .navbar-nav .nav.nav-tabs > li > a.show, .navbar-nav .nav.nav-pills > li > a.show {
   color: var(--bs-navbar-active-color);
 }
 .navbar-nav .dropdown-menu {
@@ -4016,7 +4036,7 @@ textarea.form-control-lg {
   .navbar-expand-sm .navbar-nav .dropdown-menu {
     position: absolute;
   }
-  .navbar-expand-sm .navbar-nav .nav-link {
+  .navbar-expand-sm .navbar-nav .nav-link, .navbar-expand-sm .navbar-nav .nav.nav-tabs > li > a, .navbar-expand-sm .navbar-nav .nav.nav-pills > li > a {
     padding-right: var(--bs-navbar-nav-link-padding-x);
     padding-left: var(--bs-navbar-nav-link-padding-x);
   }
@@ -4063,7 +4083,7 @@ textarea.form-control-lg {
   .navbar-expand-md .navbar-nav .dropdown-menu {
     position: absolute;
   }
-  .navbar-expand-md .navbar-nav .nav-link {
+  .navbar-expand-md .navbar-nav .nav-link, .navbar-expand-md .navbar-nav .nav.nav-tabs > li > a, .navbar-expand-md .navbar-nav .nav.nav-pills > li > a {
     padding-right: var(--bs-navbar-nav-link-padding-x);
     padding-left: var(--bs-navbar-nav-link-padding-x);
   }
@@ -4110,7 +4130,7 @@ textarea.form-control-lg {
   .navbar-expand-lg .navbar-nav .dropdown-menu {
     position: absolute;
   }
-  .navbar-expand-lg .navbar-nav .nav-link {
+  .navbar-expand-lg .navbar-nav .nav-link, .navbar-expand-lg .navbar-nav .nav.nav-tabs > li > a, .navbar-expand-lg .navbar-nav .nav.nav-pills > li > a {
     padding-right: var(--bs-navbar-nav-link-padding-x);
     padding-left: var(--bs-navbar-nav-link-padding-x);
   }
@@ -4157,7 +4177,7 @@ textarea.form-control-lg {
   .navbar-expand-xl .navbar-nav .dropdown-menu {
     position: absolute;
   }
-  .navbar-expand-xl .navbar-nav .nav-link {
+  .navbar-expand-xl .navbar-nav .nav-link, .navbar-expand-xl .navbar-nav .nav.nav-tabs > li > a, .navbar-expand-xl .navbar-nav .nav.nav-pills > li > a {
     padding-right: var(--bs-navbar-nav-link-padding-x);
     padding-left: var(--bs-navbar-nav-link-padding-x);
   }
@@ -4204,7 +4224,7 @@ textarea.form-control-lg {
   .navbar-expand-xxl .navbar-nav .dropdown-menu {
     position: absolute;
   }
-  .navbar-expand-xxl .navbar-nav .nav-link {
+  .navbar-expand-xxl .navbar-nav .nav-link, .navbar-expand-xxl .navbar-nav .nav.nav-tabs > li > a, .navbar-expand-xxl .navbar-nav .nav.nav-pills > li > a {
     padding-right: var(--bs-navbar-nav-link-padding-x);
     padding-left: var(--bs-navbar-nav-link-padding-x);
   }
@@ -4250,7 +4270,7 @@ textarea.form-control-lg {
 .navbar-expand .navbar-nav .dropdown-menu {
   position: absolute;
 }
-.navbar-expand .navbar-nav .nav-link {
+.navbar-expand .navbar-nav .nav-link, .navbar-expand .navbar-nav .nav.nav-tabs > li > a, .navbar-expand .navbar-nav .nav.nav-pills > li > a {
   padding-right: var(--bs-navbar-nav-link-padding-x);
   padding-left: var(--bs-navbar-nav-link-padding-x);
 }
@@ -4413,7 +4433,7 @@ textarea.form-control-lg {
   margin-left: calc(-0.5 * var(--bs-card-cap-padding-x));
   border-bottom: 0;
 }
-.card-header-tabs .nav-link.active {
+.card-header-tabs .nav-link.active, .card-header-tabs .nav.nav-tabs > li > a.active, .card-header-tabs .nav.nav-pills > li > a.active {
   background-color: var(--bs-card-bg);
   border-bottom-color: var(--bs-card-bg);
 }
@@ -13091,6 +13111,22 @@ section .well {
 
 .panel-group > .panel {
   margin-bottom: 8px;
+}
+/*
+ * This file is part of the YesWiki Theme bs5margot.
+ *
+ * Authors : see README.md file that was distributed with this source code.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+.nav.nav-tabs > li.active > a, .nav.nav-pills > li.active > a, .nav.nav-tabs > li > a:focus, .nav.nav-tabs > li > a:hover, .nav.nav-pills > li > a:focus, .nav.nav-pills > li > a:hover {
+  color: var(--neutral-light-color);
+  background-color: var(--primary-color);
+}
+
+.nav.nav-tabs > li > a i, .nav.nav-pills > li > a i {
+  margin-right: 8px;
 }
 /*
  * This file is part of the YesWiki Theme bs5margot.
