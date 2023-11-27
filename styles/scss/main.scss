@@ -79,7 +79,7 @@ $margot-theme-colors: (
 @import "components/_tables";
 
 // templates
-// @import "templates/calendar";
+@import "templates/calendar";
 @import "templates/agenda";
 @import "templates/facette";
 // @import "templates/accordion";

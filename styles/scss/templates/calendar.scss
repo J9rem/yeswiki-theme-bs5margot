@@ -1,0 +1,216 @@
+/*
+ * This file is part of the YesWiki Theme bs5margot.
+ *
+ * Authors : see README.md file that was distributed with this source code.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+/* CALENDAR */
+%bazarlist-calendar-header {
+  background-color: var(--neutral-soft-color);
+  border-radius: 15px;
+  padding-top: 1px;
+  line-height: 1.5;
+  border: none !important;
+}
+.fc-head {
+  @extend %bazarlist-calendar-header;
+}
+.fc-row{
+  @extend %bazarlist-calendar-header;
+  &.fc-week {
+    border-color: transparent;
+  }
+}
+.fc-col-header {
+  @extend %bazarlist-calendar-header;
+  a {
+    color: var(--navbar-link-color);
+    &:hover {
+      color: var(--navbar-link-hover-color);
+    }
+  }
+}
+
+.fc {
+  th {
+    border-width: 0 !important;
+  }
+  tr td:not(:first-child) {
+    border-left: 1px solid var(--neutral-soft-color) !important;
+  }
+  .fc-row:not(:last-child) {
+    border-bottom: 1px solid var(--neutral-soft-color) !important;
+  }
+  table .fc-col-header {
+    font-size: .75em;
+    text-transform: capitalize;
+  }
+  .fc-axis {
+    font-size: .8em;
+    padding-right: 10px !important;
+  }
+  hr.fc-divider {
+    border: none !important;
+    height: 3px;
+    background-color: var(--neutral-soft-color);
+    margin: 0 5px;
+    border-radius: 5px;
+  }
+  a.fc-more {
+    font-size: .8em;
+    font-weight: bold;
+    line-height: 2.2;
+    cursor: pointer;
+    background-color: transparent !important;
+  }
+  .fc-more-cell {
+    text-align: center;
+  }
+  .fc-popover {
+    background-color: var(--neutral-light-color) !important;
+    .fc-header {
+      padding: 5px 8px 4px 8px;
+      font-size: .9em;
+    }
+    .fc-close {
+      font-size: .9em;
+      top: 5px;
+    }
+  }
+  .fc-more-popover .fc-event-container {
+    padding-top: 0;
+  }
+}
+
+.fc .table-bordered, .table-bordered td, .table-bordered th,
+.fc .fc-scrollgrid.fc-scrollgrid-liquid {
+  border: none !important;
+}
+
+.fc-head-container, .fc-col-headers {
+  @extend .fc,table,.fc-col-header;
+}
+.fc-ltr .fc-basic-view .fc-day-top .fc-day-number {
+  margin-top: 2px;
+  font-size: .7em;
+  margin-right: 3px;
+  height: 1.3em;
+}
+ 
+.fc-today:not(.fc-day-top):not(.fc-day-header) {
+  background-color: var(--primary-color) !important;
+  opacity: .2;
+  color: inherit;
+  border-color: inherit;
+}
+.fc-today .fc-day-number {
+  color: var(--neutral-color);
+}
+.fc-event-container a {
+  font-size: .8em;
+  padding: 2px 5px 1px 5px !important;
+  border: 2px solid white;
+  margin: 4px 4px 0 4px;
+  border-radius: 2px;
+  background-color: var(--secondary-color-1) ; 
+  .fc-content {
+    width: 100%;
+    text-overflow: ellipsis;
+  }
+}
+
+tr .fc-event-container:nth-child(1) a { background-color: var(--secondary-color-1) ; }
+tr .fc-event-container:nth-child(2) a { background-color: var(--secondary-color-2) ; }
+tr .fc-event-container:nth-child(3) a { background-color: var(--primary-color) ; }
+tr .fc-event-container:nth-child(4) a { background-color: var(--secondary-color-1) ; }
+tr .fc-event-container:nth-child(5) a { background-color: var(--secondary-color-2) ; }
+tr .fc-event-container:nth-child(6) a { background-color: var(--primary-color) ; }
+tr .fc-event-container:nth-child(7) a { background-color: var(--secondary-color-1) ; }
+
+.fc-toolbar .fc-center {
+  text-transform: capitalize;
+  padding-top: 3px;
+  flex: 1;
+}
+.fc-toolbar .fc-center h2 {
+  width: 100%;
+  text-align: center;
+}
+.fc-prev-button, .fc-next-button {
+  border: none !important;
+  background: none;
+  height: auto !important;
+  color: var(--primary-color);
+}
+.fc-toolbar .fc-right {
+  order: 3;
+}
+.fc-toolbar.fc-header-toolbar {
+  display: flex;
+  align-items: center;
+}
+
+.fc .btn-group > .btn {
+  position: relative;
+  float: left;
+  background-color: transparent;
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+}
+.fc .btn-group > .btn:not(:first-child) {
+  border-left: none;
+}
+.fc .btn-group > .btn.active {
+  background-color: var(--primary-color);
+  color: var(--neutral-light-color);
+}
+
+.fc .alert-default:before, .fc .alert-info:before {
+  opacity: 0;
+  display: none;
+}
+
+.fc-agenda-view .fc-day-grid .fc-row .fc-content-skeleton {
+  padding-bottom: 8px !important;
+}
+
+@media (max-width: 800px) {
+  .fc-toolbar.fc-header-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .fc-prev-button, .fc-next-button {
+    padding: 0 !important;
+  }
+  .fc-toolbar .fc-left { order: 10; }
+  .fc-toolbar .fc-right {
+    order: 11;
+    margin-top: .5rem;
+    flex: 1 1 100%;
+  }
+  .fc-toolbar .fc-right > .btn-group {
+    float: none;
+  }
+  .fc .fc-today-button, .fc .fc-today-button.fc-button { 
+    font-size: 0px;
+  }
+  .fc .fc-today-button:before, .fc .fc-today-button.fc-button:before { 
+    /* far fa-calendar-alt */
+    content: "\f073";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 400;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    line-height: 1;
+    font-size: var(--main-text-fontsize);
+  }
+
+  .fc-more-cell > div {
+    height: 2rem;
+    overflow: hidden;
+  }
+}
