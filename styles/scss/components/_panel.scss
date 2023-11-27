@@ -26,7 +26,7 @@
 }
 
 .card-header {
-  &[data-toggle=collapse] {
+  &[data-bs-toggle=collapse] {
     --chevron-color: var(--neutral-light-color);
     position: relative;
     &:after {

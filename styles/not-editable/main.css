@@ -13050,11 +13050,11 @@ section .well {
   border-color: var(--neutral-color);
 }
 
-.card-header[data-toggle=collapse], [data-toggle=collapse].panel-heading, [data-toggle=collapse].panel-header {
+.card-header[data-bs-toggle=collapse], [data-bs-toggle=collapse].panel-heading, [data-bs-toggle=collapse].panel-header {
   --chevron-color: var(--neutral-light-color);
   position: relative;
 }
-.card-header[data-toggle=collapse]:after, [data-toggle=collapse].panel-heading:after, [data-toggle=collapse].panel-header:after {
+.card-header[data-bs-toggle=collapse]:after, [data-bs-toggle=collapse].panel-heading:after, [data-bs-toggle=collapse].panel-header:after {
   content: "";
   position: absolute;
   top: 1.3em;
@@ -13070,14 +13070,14 @@ section .well {
   -webkit-transform: rotate(35deg);
   transform: rotate(45deg);
 }
-.card-header[data-toggle=collapse].collapsed:after, [data-toggle=collapse].collapsed.panel-heading:after, [data-toggle=collapse].collapsed.panel-header:after {
+.card-header[data-bs-toggle=collapse].collapsed:after, [data-bs-toggle=collapse].collapsed.panel-heading:after, [data-bs-toggle=collapse].collapsed.panel-header:after {
   top: 0.9em;
   border-top: 0.17rem solid transparent;
   border-left: 0.17rem solid transparent;
   border-right: 0.17rem solid var(--chevron-color);
   border-bottom: 0.17rem solid var(--chevron-color);
 }
-.card-header[data-toggle=collapse]:hover:after, [data-toggle=collapse].panel-heading:hover:after, [data-toggle=collapse].panel-header:hover:after, a.card-header[data-toggle=collapse]:focus:after, a[data-toggle=collapse].panel-heading:focus:after, a[data-toggle=collapse].panel-header:focus:after {
+.card-header[data-bs-toggle=collapse]:hover:after, [data-bs-toggle=collapse].panel-heading:hover:after, [data-bs-toggle=collapse].panel-header:hover:after, a.card-header[data-bs-toggle=collapse]:focus:after, a[data-bs-toggle=collapse].panel-heading:focus:after, a[data-bs-toggle=collapse].panel-header:focus:after {
   opacity: 1;
 }
 .card-header .card-title, .panel-heading .card-title, .card-header .panel-title, .panel-heading .panel-title, .panel-header .card-title, .panel-header .panel-title {
