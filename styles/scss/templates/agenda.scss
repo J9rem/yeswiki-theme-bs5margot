@@ -1,0 +1,20 @@
+/*
+ * This file is part of the YesWiki Theme bs5margot.
+ *
+ * Authors : see README.md file that was distributed with this source code.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+.agenda-container .agenda-entry {
+  border-radius: 5px 5px 4px 4px;
+  box-shadow: none;
+  .date {
+    color: var(--primary-color);
+  }
+  fig-caption:before {
+    background: var(--primary-color);
+    opacity: .8;
+  }
+}

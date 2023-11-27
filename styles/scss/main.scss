@@ -78,5 +78,13 @@ $margot-theme-colors: (
 @import "components/_checkboxes-radio";
 @import "components/_tables";
 
+// templates
+// @import "templates/calendar";
+@import "templates/agenda";
+// @import "templates/facette";
+// @import "templates/accordion";
+@import "templates/search";
+// @import "templates/annuaire";
+
 @import "partials/_converting_variables";
 

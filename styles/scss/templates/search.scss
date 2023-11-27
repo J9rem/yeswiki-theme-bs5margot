@@ -1,0 +1,71 @@
+/*
+ * This file is part of the YesWiki Theme bs5margot.
+ *
+ * Authors : see README.md file that was distributed with this source code.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+ .bazar-search {
+  .input-group-addon {
+    background: none;
+    color: var(--primary-color);
+    font-size: 4rem;
+    position: absolute;
+    z-index: 5;
+    left: 0;
+    padding: 0;
+  }
+  input[type=text] {
+    margin-left: 2.7rem;
+    border-radius: .9rem !important;
+    background-color: #e8e8e8;
+    box-shadow: none;
+    border: none !important;
+    height: 2.4rem;
+    padding-left: 1.5rem;
+    .facette-container.dynamic & {
+      border-radius: 0 .5rem .5rem .9rem !important;
+    }
+  }
+  .search-filter select {
+    height: 2.4rem;
+    padding-top: .4em;
+    background-color: var(--neutral-color);
+    border: none;
+    color: var(--neutral-light-color);
+    border-radius: 0 !important;
+  }
+  .search-button-container .btn {
+    background: none;
+    color: var(--neutral-light-color);
+    height: 2.4rem;
+    line-height: 2.4rem;
+    padding: 0 1rem;
+    border-top-right-radius: .5em !important;
+    border-bottom-right-radius: .5em !important;
+  }
+}
+%search-input{ 
+  color: var(--neutral-color);
+}
+.search-input{
+  &:-webkit-input-placeholder,
+  &:-ms-input-placeholder,
+  &::-ms-input-placeholder,
+  &::placeholder { 
+    @extend %search-input;
+  }
+  &:-moz-placeholder,&::-moz-placeholder{ 
+    @extend %search-input;
+    opacity:  1;
+  }
+}
+
+.BAZ_menu + #bazar-search-1 {
+  margin-top: 30px;
+}
+#search-form{
+  margin-bottom: 30px;
+}
