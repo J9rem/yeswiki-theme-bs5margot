@@ -17,6 +17,17 @@ document.addEventListener('DOMContentLoaded', function() {
   $(".dropdown-toggle").attr("data-bs-toggle","dropdown").attr("role","button").attr("aria-expanded","false")
   $(".dropdown-menu > li > a").addClass("dropdown-item")
 
+  // sidebar button
+  $(".theme-sidebar a").each(function(){
+    const txt = $(this).text()
+    const formattedTxt = txt.length > 0 ? `<span>${txt}</span>` : ''
+    const icon = $(this).find('i').first()
+    const formattedIcon = icon.length === 0 ? `<i class="fas fa-link"></i>` : icon
+    $(this).html('')
+    $(this).append(formattedTxt)
+    $(this).append(formattedIcon)
+  })
+
   const convertingAddingClass= {
     '.collapse.in': 'show',
     // '.panel-group': 'accordion',
