@@ -21,7 +21,7 @@
     padding: 1rem;
     justify-content: flex-end;
 
-    & > a {
+    & > a, & > .include > a {
         position: relative;
         visibility: 0;
         font-size: 0;

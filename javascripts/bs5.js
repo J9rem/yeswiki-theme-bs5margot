@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
   $(".dropdown-menu > li > a").addClass("dropdown-item")
 
   // sidebar button
-  $(".theme-sidebar > a").each(function(){
+  $(".theme-sidebar > a,.theme-sidebar > .include > a").each(function(){
     const txt = $(this).text()
     const formattedTxt = txt.length > 0 ? `<span>${txt}</span>` : ''
     const icon = $(this).find('i').first()
