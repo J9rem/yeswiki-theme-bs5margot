@@ -67,6 +67,7 @@
   left: 0;
   z-index: 990;
 }
+
 #yw-topnav .btn-menu {
 	display: none;
 }
@@ -349,4 +350,15 @@
 }
 #LoginModal input[name=login], .login-form [type=submit], .login-form-dropdown [type=submit] {
   margin-top: 1rem;
+}
+
+
+/* -------------- */
+/* only one level */
+/* -------------- */
+
+#yw-topnav div > ul.nav.navbar-nav > li {
+  & > a > .caret,& > ul.dropdown-menu {
+    display:none;
+  }
 }

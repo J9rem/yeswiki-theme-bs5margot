@@ -13,6 +13,25 @@ document.addEventListener('DOMContentLoaded', function() {
   $("#navbarSupportedContent .navbar-nav > li").addClass("nav-item")
   $("#navbarSupportedContent .navbar-nav > li > a").addClass("nav-link")
 
+  // only one level
+  $('#yw-topnav div > ul.nav.navbar-nav > li > ul.dropdown-menu').each(function(){
+    const firstSiblingLink = $(this).siblings('a').first()
+    const href = firstSiblingLink?.attr('href') ?? ''
+    if (firstSiblingLink?.length > 0){
+      if (!(href?.length > 0) || href === '#'){
+        const firstLink = $(this).find('li > a[href^="http"]').first()
+        const firstHref = firstLink?.attr('href') ?? ''
+        if (firstHref?.length > 0){
+          firstSiblingLink.attr('href',firstHref)
+        }
+      }
+      firstSiblingLink.removeAttr('data-bs-toggle')
+      firstSiblingLink.removeAttr('data-toggle')
+      firstSiblingLink.removeClass('dropdown-toggle')
+      firstSiblingLink.parent().removeClass('dropdown')
+    }
+  })
+
   // manage dropdown 
   $(".dropdown-toggle").attr("data-bs-toggle","dropdown").attr("role","button").attr("aria-expanded","false")
   $(".dropdown-menu > li > a").addClass("dropdown-item")
