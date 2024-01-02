@@ -65,35 +65,3 @@ copySync(
   'javascripts/BOOTSTRAP_LICENSE',
   { overwrite: true }
 )
-
-//mdbootstrap
-copySync(
-  'node_modules/mdbootstrap/js/mdb.min.js',
-  'javascripts/vendor/mdbootstrap/mdb.min.js',
-  { overwrite: true }
-)
-replaceInFile(
-  'javascripts/vendor/mdbootstrap/mdb.min.js',
-  '//# sourceMappingURL=mdb.min.js.map',
-  ''
-)
-copySync(
-  'node_modules/mdbootstrap/license.txt',
-  'javascripts/vendor/mdbootstrap/LICENSE',
-  { overwrite: true }
-)
-copySync(
-  'node_modules/mdbootstrap/css/mdb.min.css',
-  'styles/vendor/mdbootstrap/mdb.min.css',
-  { overwrite: true }
-)
-replaceInFile(
-  'styles/vendor/mdbootstrap/mdb.min.css',
-  '/*# sourceMappingURL=mdb.min.css.map*/',
-  ''
-)
-copySync(
-  'node_modules/mdbootstrap/license.txt',
-  'styles/vendor/mdbootstrap/LICENSE',
-  { overwrite: true }
-)
