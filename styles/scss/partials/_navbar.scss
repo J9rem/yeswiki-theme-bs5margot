@@ -230,14 +230,17 @@
 #yw-topnav .yw-topnav-fast-access .btn .icon-cog {
   font-size: 1.3em;
 }
+
 @media (max-width: 800px) {
-  #yw-topnav .yw-topnav-fast-access .btn.btn-default, 
-  #yw-topnav .btn.btn-menu.btn-default,
-  #yw-topnav .yw-topnav-fast-access .btn.btn-default:hover, 
-  #yw-topnav .yw-topnav-fast-access .btn.btn-default:focus {
-	   background: var(--navbar-bg-color) !important;
-	   color: var(--navbar-link-color) !important;
-	}
+  #yw-topnav {
+    .yw-topnav-fast-access .btn.btn-default,
+    .btn.btn-menu.btn-default{
+      &, &:hover, &:focus {
+        background: var(--navbar-bg-color) !important;
+        color: var(--navbar-link-color) !important;
+      }
+    }
+  }
 }
 /* Fix buttons color as they are overwritten by boostrap */
 /* TODO check if needed */
@@ -252,11 +255,11 @@
         color: var(--navbar-bg-color) !important;
       }
     } @else if $name != neutral {
-      .btn.btn-#{$name},
-      .btn.btn-#{$name}:hover,
-      .btn.btn-#{$name}:focus {
-        background-color: var($color) !important;
-      }
+      .btn.btn-#{$name} {
+        &,&:hover,&:focus {
+          background-color: var($color) !important;
+        }
+      } 
     }
   }
 }
