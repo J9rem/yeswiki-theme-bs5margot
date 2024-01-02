@@ -134,7 +134,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      @media (max-width: 801px) {
+      @media (max-width: 800px) {
         & {
           white-space: break-spaces;
           line-height: 20px;
@@ -237,47 +237,25 @@
 	}
 }
 /* Fix buttons color as they are overwritten by boostrap */
-#yw-topnav .btn.btn-default {
-  background: var(--navbar-link-color) !important;
-  color: var(--navbar-bg-color) !important;
-}
-#yw-topnav .btn:not(.btn-default):not(.btn-link) {
-  color: var(--neutral-light-color);
-}
-#yw-topnav .btn.btn-primary,
-#yw-topnav .btn.btn-primary:hover,
-#yw-topnav .btn.btn-primary:focus {
-  background-color: var(--primary-color) !important;
-}
-#yw-topnav .btn.btn-secondary-1,
-#yw-topnav .btn.btn-secondary-1:hover,
-#yw-topnav .btn.btn-secondary-1:focus {
-  background-color: var(--secondary-color-1) !important;
-}
-#yw-topnav .btn.btn-secondary-2,
-#yw-topnav .btn.btn-secondary-2:hover,
-#yw-topnav .btn.btn-secondary-2:focus {
-  background-color: var(--secondary-color-2) !important;
-}
-#yw-topnav .btn.btn-warning,
-#yw-topnav .btn.btn-warning:hover,
-#yw-topnav .btn.btn-warning:focus {
-  background-color: var(--warning-color) !important;
-}
-#yw-topnav .btn.btn-success,
-#yw-topnav .btn.btn-success:hover,
-#yw-topnav .btn.btn-success:focus {
-  background-color: var(--success-color) !important;
-}
-#yw-topnav .btn.btn-info,
-#yw-topnav .btn.btn-info:hover,
-#yw-topnav .btn.btn-info:focus {
-  background-color: var(--info-color) !important;
-}
-#yw-topnav .btn.btn-danger,
-#yw-topnav .btn.btn-danger:hover,
-#yw-topnav .btn.btn-danger:focus {
-  background-color: var(--danger-color) !important;
+/* TODO check if needed */
+#yw-topnav {
+  .btn:not(.btn-default):not(.btn-link) {
+    color: var(--neutral-light-color);
+  }
+  @each $name, $color in $margot-theme-colors {
+    @if $name == default {
+      .btn.btn-default {
+        background: var(--navbar-link-color) !important;
+        color: var(--navbar-bg-color) !important;
+      }
+    } @else if $name != neutral {
+      .btn.btn-#{$name},
+      .btn.btn-#{$name}:hover,
+      .btn.btn-#{$name}:focus {
+        background-color: var($color) !important;
+      }
+    }
+  }
 }
 
 /* ----------------- */
