@@ -66,8 +66,13 @@ document.addEventListener('DOMContentLoaded', function() {
     })
   const convertingAttrs = {
     'data-toggle': {
-      criteron: ['collapse','tab'],
+      criteron: ['collapse','tab','modal'],
       newname: 'data-bs-toggle',
+      replace: true
+    },
+    'data-dismiss': {
+      criteron: ['modal'],
+      newname: 'data-bs-dismiss',
       replace: true
     },
     'data-parent': {
@@ -100,5 +105,12 @@ document.addEventListener('DOMContentLoaded', function() {
             e.removeAttribute(origin)
           }
       })
+    })
+
+    // manage alias for closing modal
+    $(document).on('click','.close[data-dismiss=modal]',function(){
+      $(this).removeAttr('data-dismiss')
+      $(this).attr('data-bs-dismiss','modal')
+      $(this).trigger('click')
     })
 })
