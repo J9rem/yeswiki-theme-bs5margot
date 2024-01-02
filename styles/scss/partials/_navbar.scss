@@ -30,6 +30,9 @@
 
   @media( max-width:991px){
     flex-wrap: nowrap;
+    .navbar-toggler {
+      order: -1;
+    }
   }
 }
 
