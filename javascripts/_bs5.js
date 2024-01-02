@@ -170,9 +170,11 @@
       if (target?.classList.contains('close')
         && target?.hasAttribute('data-dismiss')
         && target?.getAttribute('data-dismiss') === 'modal'){
+        event.preventDefault()
+        event.stopPropagation()
         target.removeAttribute('data-dismiss')
         target.setAttribute('data-bs-dismiss','modal')
-        target.dispatchEvent(document.createEvent('click'))
+        target.dispatchEvent(new MouseEvent('click'))
       }
     })
   }
