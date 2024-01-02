@@ -10,3 +10,7 @@
 .dropdown-menu-right {
   @extend .dropdown-menu-end;
 }
+
+.dropdown-menu .divider {
+  @extend .dropdown-divider;
+}
