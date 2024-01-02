@@ -39,7 +39,7 @@
     })
   }
 
-  const convertAttr = (params)=>{
+  const convertData = (params)=>{
     Object.entries(params)
     .forEach(([origin,data])=>{
         const query = 
@@ -47,21 +47,50 @@
             Array.isArray(data?.criteron)
             ? data.criteron
             : ([data?.criteron ?? ''])
-          ).map((crit)=>`[${origin}${crit?.length > 0 ? `="${crit}"` : ''}]`)
+          ).map((crit)=>`[data-${origin}${crit?.length > 0 ? `="${crit}"` : ''}]`)
           .join(',')
         document.querySelectorAll(query).forEach((e)=>{
+          const oldName = `data-${origin}`
+          const newName = `data-${data.newname}`
+          const oldDatasetName = prepareForDatasetName(origin)
+          const newDatasetName = prepareForDatasetName(data.newname)
           if (data?.remove !== true){
-            e.setAttribute(
-              data.newname,
-              data?.newcriteron
-                ?? e.getAttribute(origin)
-            )
+            const newValue = data?.newcriteron
+              ?? e.getAttribute(oldName)
+            e.setAttribute(newName,newValue)
+            e.dataset[newDatasetName] = newValue
+            if (origin === 'parent'){
+              defineAlsoParentForPanel(e,newName,newValue,newDatasetName)
+            }
           }
           if (data?.remove === true || data?.replace === true){
-            e.removeAttribute(origin)
+            e.removeAttribute(oldName)
+            if (oldDatasetName in e.dataset){
+              delete e.dataset[oldDatasetName]
+            }
           }
       })
     })
+  }
+
+  const defineAlsoParentForPanel = (e,newName,newValue,newDatasetName) => {
+    const href = e?.getAttribute('href') ?? ''
+    if (href?.length > 1 && href.slice(0,1) === '#'){
+      const panel = e?.parentNode?.querySelector(href)
+      if (panel && !panel.hasAttribute(newName)){
+        panel.setAttribute(newName,newValue)
+        panel.dataset[newDatasetName] = newValue
+      }
+    }
+  }
+
+  const prepareForDatasetName = (datasetName) => {
+    return datasetName.split('-').map((v,k)=>{
+      const sanitizedV = v.toLowerCase()
+      return k === 0 
+        ? sanitizedV 
+        : sanitizedV.slice(0,1).toUpperCase()+sanitizedV.slice(1)
+    }).join('')
   }
 
   /**
@@ -192,7 +221,7 @@
     manageDropDown()
 
     addClassAlias({
-      '.collapse.in': 'show',
+      '.collapse.in:not(.show)': 'show',
       // '.panel-group': 'accordion',
       // '.panel-group > .panel': 'accordion-item',
       // '.panel-group > .panel > .panel-heading': ['accordion-header','accordion-button'],
@@ -200,23 +229,23 @@
       // '.panel-group > .panel > .panel-collapse > .panel-body': 'accordion-body',
     })
 
-    convertAttr({
-      'data-toggle': {
+    convertData({
+      'toggle': {
         criteron: ['collapse','tab','modal'],
-        newname: 'data-bs-toggle',
+        newname: 'bs-toggle',
         replace: true
       },
-      'data-dismiss': {
+      'dismiss': {
         criteron: ['modal'],
-        newname: 'data-bs-dismiss',
+        newname: 'bs-dismiss',
         replace: true
       },
-      'data-parent': {
-        newname: 'data-bs-parent',
+      'parent': {
+        newname: 'bs-parent',
         replace: true
       },
-      'data-target': {
-        newname: 'data-bs-target',
+      'target': {
+        newname: 'bs-target',
         replace: true
       }
     })
