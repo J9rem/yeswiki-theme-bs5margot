@@ -3,6 +3,3 @@
 node_modules
 
 *.log
-
-# generated sources map css file
-/styles/not-editable/*.min.css.map
