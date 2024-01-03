@@ -7,6 +7,6 @@
   },
   "scripts": {
     "postinstall": "node ./javascripts/vendor/extract-files-from-node-modules.js",
-    "watch-css": "yarn install && sass --watch ./styles/scss/main.scss ./styles/not-editable/main.min.css --style compressed"
+    "watch-css": "yarn install && sass --watch ./styles/scss/main.scss ./styles/not-editable/main.min.css --style compressed --embed-sources"
   }
 }
