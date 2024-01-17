@@ -110,35 +110,81 @@
     })
   }
 
-  const setOnlyOneLevel = () => {
+  const addLinkToFirstChildIfText = (link,menu) => {
+    const href = link?.getAttribute('href') ?? ''
+    if (link && (!(href?.length > 0) || href === '#')){
+      const links = menu?.querySelectorAll('li > a[href^="http"]') ?? null
+      const firstLink = links?.[0] ?? null
+      const firstHref = firstLink?.getAttribute('href') ?? ''
+      if (firstHref?.length > 0){
+        link.setAttribute('href',firstHref)
+      }
+    }
+
+  }
+
+  const cleanDropdownActionsOneLink = (link) => {
+    ['data-bs-toggle','data-toggle'].forEach((attrName)=>{
+      if (link?.hasAttribute(attrName)){
+        link.removeAttribute(attrName)
+      }
+    })
+    if (link?.classList?.contains('dropdown-toggle')){
+      link.classList.remove('dropdown-toggle')
+    }
+    if (link?.parentNode?.classList?.contains('dropdown')){
+      link.parentNode.classList.remove('dropdown')
+    }
+  }
+
+  const createBtnGroup = ()=>{
+    const btn = document.createElement('div')
+    btn.classList.add('btn-group')
+    return btn
+  }
+  const createDropdownBtn = ()=>{
+    const btn = document.createElement('a')
+    btn.classList.add('dropdown-toggle')
+    btn.classList.add('dropdown-toggle-split')
+    btn.setAttribute('data-bs-toggle','dropdown')
+    btn.setAttribute('aria-expanded','false')
+    btn.setAttribute('href','#')
+    const span = document.createElement('span')
+    span.classList.add('visually-hidden')
+    span.innerText = 'Afficher le menu'
+    btn.appendChild(span)
+    return btn
+  }
+
+  const hideOtherLevels = (menu) => {
+    menu?.querySelectorAll(':scope > li > ul')?.forEach((subMenu)=>{
+      const firstLink = subMenu.parentNode.querySelector(':scope > a')
+      addLinkToFirstChildIfText(firstLink,subMenu)
+      cleanDropdownActionsOneLink(firstLink)
+      subMenu.remove()
+    })
+  }
+
+  const pushAfterANewDropdownButton = (link,menu) => {
+    const btnGroup = createBtnGroup()
+    link.insertAdjacentElement('beforebegin',btnGroup)
+    btnGroup.appendChild(link)
+    btnGroup.appendChild(createDropdownBtn())
+    btnGroup.appendChild(menu)
+    hideOtherLevels(menu)
+  }
+
+  const setFirstLevelSplitted = () => {
     const topNav = getTopNav()
     const topNavDropdownMenus = topNav.querySelectorAll('div > ul.nav.navbar-nav > li > ul.dropdown-menu')
     topNavDropdownMenus?.forEach((item) => {
         const siblingLinks = getSiblings(item,'a')
         const firstSiblingLink = siblingLinks?.[0] ?? null
-        const href = firstSiblingLink?.getAttribute('href') ?? ''
         if (firstSiblingLink && !firstSiblingLink?.classList?.contains('already-dropdown-updated')){
           firstSiblingLink.classList.add('already-dropdown-updated')
-          if (!(href?.length > 0) || href === '#'){
-            const links = item?.querySelectorAll('li > a[href^="http"]') ?? null
-            const firstLink = links?.[0] ?? null
-            const firstHref = firstLink?.getAttribute('href') ?? ''
-            if (firstHref?.length > 0){
-              firstSiblingLink.setAttribute('href',firstHref)
-            }
-          }
-          if (firstSiblingLink?.hasAttribute('data-bs-toggle')){
-            firstSiblingLink.removeAttribute('data-toggle')
-          }
-          if (firstSiblingLink?.hasAttribute('data-bs-toggle')){
-            firstSiblingLink.removeAttribute('data-toggle')
-          }
-          if (firstSiblingLink?.classList?.contains('dropdown-toggle')){
-            firstSiblingLink.classList.remove('dropdown-toggle')
-          }
-          if (firstSiblingLink?.parentNode?.classList?.contains('dropdown')){
-            firstSiblingLink.parentNode.classList.remove('dropdown')
-          }
+          addLinkToFirstChildIfText(firstSiblingLink,item)
+          cleanDropdownActionsOneLink(firstSiblingLink)
+          pushAfterANewDropdownButton(firstSiblingLink,item)
         }
       }
     )
@@ -217,7 +263,7 @@
       manageSidebarbutton()
     }
     configureTopNav()
-    setOnlyOneLevel()
+    setFirstLevelSplitted()
     manageDropDown()
 
     addClassAlias({

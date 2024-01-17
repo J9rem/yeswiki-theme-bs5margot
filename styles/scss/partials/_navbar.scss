@@ -173,29 +173,49 @@
   align-items: center;
   flex-wrap: wrap;
 }
-#yw-topnav .navbar-brand, 
-#yw-topnav .navbar-nav > li > a:not(.btn),
-#yw-topnav .navbar-nav > li > a.btn-link {
+
+%navbar-links {
   color: var(--navbar-link-color) !important;
   background-color: transparent !important;
+  &:hover {
+    color: var(--navbar-link-hover-color) !important;
+  }
 }
 
-#yw-topnav .navbar-nav > li > a:not(.btn) {
+%navbar-links-not-btn {
+  @extend %navbar-links;
   padding: .5rem 1.4rem;
-}
-@media (max-width: 1200px) {
-  #yw-topnav .navbar-nav > li > a:not(.btn) {
+  @media (max-width: 1200px) {
     padding: .3rem .8rem;
   }
 }
-#yw-topnav .navbar-brand:hover, 
-#yw-topnav .navbar-nav > li > a:not(.btn):hover {
-   color: var(--navbar-link-hover-color) !important;
-}
-#yw-topnav li a.active-link {
-  font-weight: bold;
-}
 
+#yw-topnav {
+  .navbar-brand {
+    @extend %navbar-links;
+  }
+  .navbar-nav > li {
+    &, & > .btn-group {
+      & > a:not(.btn) {
+        @extend %navbar-links-not-btn;
+      }
+      & > a.btn-link {
+        @extend %navbar-links;
+      }
+    }
+    & > .btn-group > a:not(.btn) {
+      &:not(:first-child) {
+        padding-left: .2rem;
+      }
+      &:not(:last-child) {
+        padding-right: .2rem;
+      }
+    }
+  }
+  li a.active-link {
+    font-weight: bold;
+  }
+}
 
 /* ----------------- */
 /*      Buttons      */
