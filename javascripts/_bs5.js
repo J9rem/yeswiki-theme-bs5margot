@@ -273,6 +273,11 @@
       // '.panel-group > .panel > .panel-heading': ['accordion-header','accordion-button'],
       // '.panel-group > .panel > .panel-collapse': 'accordion-collapse',
       // '.panel-group > .panel > .panel-collapse > .panel-body': 'accordion-body',
+      
+      // alias for glyphicon
+      'i.glyphicon': 'fa',
+      'i.glyphicon.glyphicon-chevron-right': 'fa-chevron-right',
+      'i.glyphicon.glyphicon-chevron-left': 'fa-chevron-left',
     })
 
     convertData({

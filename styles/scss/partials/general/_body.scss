@@ -24,3 +24,11 @@ html {
 .hide {
     @extend .d-none;
 }
+
+.pull-left {
+    @extend .float-start;
+}
+
+.pull-right {
+    @extend  .float-end;
+}
