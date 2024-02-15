@@ -7,99 +7,106 @@
  * file that was distributed with this source code.
  */
 
-.bazar-list > .list {
-  & > .panel-group,& > .accordion-group {
-    & > .panel {
-      &.panel-default {
-        border: none;
-        background-color: transparent;
-        transition: border .3s, margin .3s, padding .3s;
-        padding: 0;
-        border: .3rem solid transparent;
-        box-shadow: none;
-        >.panel-heading {
-          color: var(--neutral-color);
-          background-color: transparent;
-          border-color: var(--neutral-soft-color);
-          transition: border .3s, margin .3s;
-        }
-      }
-      & > .panel-heading .bazar-list .panel .panel-collapse,
-      & > .panel-collapse {
-        cursor: default;
-        & > .panel-body {
+.bazar-list {
+
+  & > .list, &.dynamic {
+    & > .panel-group,& > .accordion-group {
+      & > .panel {
+        &.panel-default {
           border: none;
+          background-color: transparent;
+          transition: border .3s, margin .3s, padding .3s;
           padding: 0;
-          .BAZ_fiche_titre {
-            display: none;
-          }
-          .BAZ_fiche_info {
-            margin-left: -.9rem;
-            margin-right: -.9rem;
-            padding: .9rem;
-            border-top: 1px dashed var(--neutral-soft-color);
+          border: .3rem solid transparent;
+          box-shadow: none;
+          >.panel-heading {
+            color: var(--neutral-color);
+            background-color: transparent;
+            border-color: var(--neutral-soft-color);
+            transition: border .3s, margin .3s;
           }
         }
-      }
-      &:not(.collapsed) {
-        border-color: var(--primary-color);
-        border-radius: .5em;
-        margin-top: .6rem !important;
-        padding: 0 .9rem;
+        & > .panel-heading .bazar-list .panel .panel-collapse,
+        & > .panel-collapse {
+          cursor: default;
+          & > .panel-body {
+            border: none;
+            padding: 0;
+            .BAZ_fiche_titre {
+              display: none;
+            }
+            .BAZ_fiche_info {
+              margin-left: -.9rem;
+              margin-right: -.9rem;
+              padding: .9rem;
+              border-top: 1px dashed var(--neutral-soft-color);
+            }
+          }
+        }
+        &:not(.collapsed) {
+          border-color: var(--primary-color);
+          border-radius: .5em;
+          margin-top: .6rem !important;
+          padding: 0 .9rem;
+          & > .panel-heading {
+            border: none !important;
+            & > .panel-title, & > .panel-heading-container > .panel-title {
+              color: var(--primary-color);
+              font-size: 1.3rem;
+              margin-bottom: 5px;
+              margin-bottom: .8rem;
+            }
+          }
+          & +.panel .panel-heading {
+            border-top: none !important;
+          }
+        }
         & > .panel-heading {
-          border: none !important;
-          & > .panel-title {
-            color: var(--primary-color);
-            font-size: 1.3rem;
-            margin-bottom: 5px;
-            margin-bottom: .8rem;
+          border: none;
+          padding: 1.2rem 0 0 0;
+          &[data-bs-toggle=collapse], &[data-toggle=collapse] {
+            --chevron-color: var(--neutral-soft-color);
+            &:hover {
+              --chevron-color: var(--primary-color);
+            }
+            &:after {
+              transition: border-color .2s;
+              top: 2rem;
+              right: .5em;
+            }
           }
-        }
-        & +.panel .panel-heading {
-          border-top: none !important;
-        }
-      }
-      & > .panel-heading {
-        border: none;
-        padding: 1.2rem 0 0 0;
-        &[data-bs-toggle=collapse] {
-          --chevron-color: var(--neutral-soft-color);
+          & > .panel-title, & > .panel-heading-container > .panel-title {
+            font-size: 1rem;
+            transition: all .3s;
+            padding-right: 2.2rem;
+          }
+          &.collapsed {
+            &[data-bs-toggle=collapse], &[data-toggle=collapse] {
+              &:after {
+                top: 1.4rem;
+              }
+            }
+          }
           &:hover {
-            --chevron-color: var(--primary-color);
-          }
-          &:after {
-            transition: border-color .2s;
-            top: 2rem;
-            right: .5em;
+            & > .panel-title, & > .panel-heading-container > .panel-title, .icon-chevron{
+              color: var(--primary-color);
+            }
           }
         }
-        & > .panel-title {
-          font-size: 1rem;
-          transition: all .3s;
-          padding-right: 2.2rem;
+        &:not(:first-child) > .panel-heading {
+          border-top: 1px solid var(--neutral-soft-color);
+          border-radius: 0;
         }
-        &.collapsed[data-bs-toggle=collapse]:after {
-          top: 1.4rem;
+        &:last-child > .panel-heading {
+          padding-bottom: .5rem;
+          border-bottom: 1px solid var(--neutral-soft-color);
         }
-        &:hover {
-          & > .panel-title,.icon-chevron{
-            color: var(--primary-color);
-          }
+        .BAZ_label {
+          color: var(--neutral-color);
+          font-weight: bold !important;
+          margin: 0;
+          font-size: inherit;
         }
-      }
-      &:not(:first-child) > .panel-heading {
-        border-top: 1px solid var(--neutral-soft-color);
-        border-radius: 0;
-      }
-      &:last-child > .panel-heading {
-        padding-bottom: .5rem;
-        border-bottom: 1px solid var(--neutral-soft-color);
-      }
-      .BAZ_label {
-        color: var(--neutral-color);
-        font-weight: bold !important;
-        margin: 0;
-        font-size: inherit;
       }
     }
   }
