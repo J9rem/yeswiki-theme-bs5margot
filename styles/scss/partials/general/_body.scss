@@ -20,3 +20,7 @@ html {
     /* define also html so we can use rem */
     @extend body;
 }
+
+.hide {
+    @extend .d-none;
+}
