@@ -339,7 +339,10 @@
   const manageModalsClosing = () => {
     document.addEventListener('click',(event)=>{
       const target = event.target
-      if (target?.classList.contains('close')
+      if ((
+          target?.classList.contains('close')
+          || target?.classList.contains('no-header-btn-close')
+        )
         && target?.hasAttribute('data-dismiss')
         && target?.getAttribute('data-dismiss') === 'modal'){
         event.preventDefault()
