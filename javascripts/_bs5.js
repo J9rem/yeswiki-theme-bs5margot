@@ -207,6 +207,103 @@
   }
 
   /**
+   * tabs
+   */
+  const showATab = (href,tabContent) => {
+    const base = $(tabContent).prev()
+    const tabContentLink = $(base).find(`[href="${href}"]`)
+    const tabContentItem = $(tabContent).find(href)
+    if (tabContentLink?.length > 0 && tabContentItem?.length > 0){
+      $(base).find('.active').removeClass('active')
+      $(tabContentLink).addClass('active')
+      $(tabContent).find('.active').removeClass('active')
+      $(tabContentItem).addClass('active')
+    }
+    // manage iframe case
+    if (window.location != parent.parent.location) {
+      $('html, body').animate({ scrollTop: $(base).offset().top }, 500)
+      try {
+        $(base).get(0).scrollIntoView()
+        window.parent.scrollBy(0,-80)
+      } catch (error) {
+      }
+    } else {
+      $('html, body').animate({ scrollTop: $(base).offset().top - 80 }, 500)
+    }
+  }
+  const eventForTabNavigationButtons = (event) => {
+    const target = event.target
+    const tabContent = $(target).closest('.tab-content')
+    const href = target?.hasAttribute('href') ? target?.getAttribute('href') : ''
+    if (href?.length > 0){
+      showATab(href,tabContent)
+    }
+  }
+  const setUpdateLocationEvent = (element) => {
+    $(element).on('show.bs.tab', function() {
+      const stateObject = { url: $(this).attr('href') }
+
+      if (window.location.hash && stateObject.url !== window.location.hash) {
+        window.history.pushState(
+          stateObject,
+          document.title,
+          window.location.pathname
+            + window.location.search
+            + $(this).attr('href')
+        )
+      } else {
+        window.history.replaceState(
+          stateObject,
+          document.title,
+          window.location.pathname
+            + window.location.search
+            + $(this).attr('href')
+        )
+      }
+    })
+  }
+  const manageTabs = (firstCall) => {
+    document.querySelectorAll('ul.nav[role=tablist] > li[role=presentation].active > a[role=tab]')?.forEach((item) => {
+        item?.classList?.add('active')
+      }
+    )
+    document.querySelectorAll('ul.nav[role=tablist] > li[role=presentation] > a[role=tab]')?.forEach((item) => {
+        item?.classList?.add('nav-link')
+      }
+    )
+    document.querySelectorAll('ul.nav[role=tablist] > li[role=presentation]')?.forEach((item) => {
+        item?.classList?.add("nav-item")
+        if (item?.classList?.contains('active')){
+          item.classList.remove('active')
+        }
+      }
+    )
+    document.querySelectorAll('.tab-content [data-toggle="tab"]')?.forEach((item) => {
+        if (firstCall){
+          item?.addEventListener('click',eventForTabNavigationButtons)
+        }
+        item.removeAttribute('role')
+        item.removeAttribute('data-toggle')
+      }
+    )
+    
+    if (firstCall){
+      document.querySelectorAll('.nav-item > a.nav-link')?.forEach((item) => {
+          setUpdateLocationEvent(item)
+          const href = item?.hasAttribute('href') ? item?.getAttribute('href') : ''
+          if (href.length > 0
+            && window?.location?.hash?.length > 0
+            && href === window.location.hash){
+            const base = $(item).closest('.nav')
+            showATab(href,$(base).next())
+          }
+        }
+      )
+    }
+    
+  }
+
+  /**
    * manage sidebar buttons
    */
   const manageSidebarbutton = () => {
@@ -265,6 +362,7 @@
     configureTopNav()
     setFirstLevelSplitted()
     manageDropDown()
+    manageTabs(firstCall)
 
     addClassAlias({
       '.collapse.in:not(.show)': 'show',
