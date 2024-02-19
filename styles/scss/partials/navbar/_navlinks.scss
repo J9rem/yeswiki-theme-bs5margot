@@ -106,6 +106,18 @@
     &.nav-item {
       @media (max-width: 991px) {
         border-bottom: var(--bs5margot-navbar-li-bottom-max991px);
+        .btn-group {
+          flex-wrap: wrap;
+          width: 100%;
+          & > .dropdown-menu {
+            margin-top: 0;
+            text-align: center;
+            width: 100%;
+            & > li {
+              width: 100%;
+            }
+          }
+        }
       }
     }
   }

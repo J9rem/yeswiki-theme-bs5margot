@@ -40,22 +40,24 @@
     align-items: center;
     max-width: initial; /* to rewrite definition by bootstrap */
   
-    @media( max-width:991px){
+    @media(max-width:991px){
       flex-wrap: wrap;
-      header {
-        order: 1;
-      }
-      .navbar-brand {
-        order: 2;
-      }
       .navbar-toggler {
-        order: 3;
+        & + #navbarSupportedContent, & + .navbar-collapse {
+          & + .yw-topnav-fast-access {
+            display: none;
+          }
+        }
+        &:not(.collapsed):not([aria-expanded=false]) {
+          & + #navbarSupportedContent, & + .navbar-collapse {
+            & + .yw-topnav-fast-access {
+              display: block;
+            }
+          }
+        }
       }
-      #navbarSupportedContent {
-        order: 5;
-      }
-      .yw-topnav-fast-access {
-        order: 4;
+      .yw-topnav-fast-access .dropdown-menu.dropdown-menu-right[data-bs-popper] {
+        right: auto;
       }
     }
   }
