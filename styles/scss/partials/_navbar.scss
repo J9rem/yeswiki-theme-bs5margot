@@ -50,7 +50,6 @@
       #navbarSupportedContent, .navbar-collapse {
         .copy-of-sidebar {
           border-radius: 10px;
-          border-bottom: none;
           display: flex;
           flex-direction: column;
           justify-content: center;
@@ -58,6 +57,9 @@
           margin-top: 5px;
           position: relative;
           background-color: var(--navbar-link-color);
+          .nav-item {
+            border-bottom: none;
+          }
           .nav-link {
             color: var(--navbar-bg-color);
             &:hover {
