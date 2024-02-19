@@ -68,8 +68,9 @@
    --navbar-btn-default-bg-color: transparent;
    --bs5margot-yw-topnav-border-bottom: 1px solid var(--neutral-light-color);
    --theme-sidebar-border: none;
-   --theme-sidebar-border-radius: 10px 0 0 10px;
+   --theme-sidebar-border-radius: 10px;
    --theme-sidebar-box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 2px;
+   --theme-sidebar-span-padding: 5px 5px 5px 10px;
    --theme-sidebar-text-color: white;
    --yw-main-padding-x-width-up-to-800px: 1rem;
    --yw-main-padding-y-width-up-to-800px: 0;

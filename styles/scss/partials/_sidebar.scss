@@ -10,7 +10,7 @@
 .theme-sidebar{
     background-color: var(--primary-color);
     border: var(--theme-sidebar-border);
-    border-radius: var(--theme-sidebar-border-radius);
+    border-radius: var(--theme-sidebar-border-radius) 0 0 var(--theme-sidebar-border-radius);
     box-shadow: var(--theme-sidebar-box-shadow);
     color: var(--theme-sidebar-text-color);
     display: block;
@@ -25,18 +25,34 @@
         display: block;
         font-size:.1em;
         padding: 10px;
-        visibility: hidden;
+        &:not(.sidebar-updated){
+            visibility: hidden;
+        }
+        &:first-child {
+            border-top-left-radius: var(--theme-sidebar-border-radius);
+        }
+        &:last-child {
+            border-bottom-left-radius: var(--theme-sidebar-border-radius);
+        }
         & > *, &:hover > * {
-            visibility: visible;
             font-size: var(--main-text-fontsize);
             opacity: 1;
+            visibility: visible;
         }
         & > span {
-            position: absolute;
-            top: 0;
-            left: 0;
+            background-color: var(--theme-sidebar-text-color);
+            border-radius: var(--theme-sidebar-border-radius) 0 0 var(--theme-sidebar-border-radius);
+            color: var(--primary-color);
+            max-width: 0px;
             opacity: 0;
+            overflow-y: hidden;
+            padding: var(--theme-sidebar-span-padding);
+            position: absolute;
+            right: 0;
             text-align: right;
+            top: 0;
+            transition: all 0.3s ease-in-out;
+            white-space: nowrap;
             &:hover,&:focus {
                 opacity: 1;
             }
@@ -44,24 +60,14 @@
 
         &:hover {
             background-color: var(--theme-sidebar-text-color);
-            i{
+            border-radius: 0;
+            i {
                 color: var(--primary-color);
             }
-        }
-    }
-    & > .include > a {
-        &:hover {
-            background-color: var(--theme-sidebar-text-color);
-            border-radius: var(--theme-sidebar-border-radius);
-            color: var(--primary-color);
-            left: -200px;
-            padding: 5px;
-            text-align: right;
-            width:200px;
-        }
-        & > span {
-            transition: all 0.3s ease-in-out;
-            white-space: nowrap;
+            & > span {
+                max-width: 200px;
+                right: 100%;
+            }
         }
     }
 
