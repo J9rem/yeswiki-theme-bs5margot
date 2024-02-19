@@ -309,7 +309,6 @@
    * manage sidebar buttons
    */
   const appendItemsToNavBarLinks = (items) => {
-    console.log({items})
     const topNav = getTopNav()
     const navbarCollapse = topNav.querySelector('.navbar-collapse')
     if (navbarCollapse && items?.length > 0){
