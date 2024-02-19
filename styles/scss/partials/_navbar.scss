@@ -80,6 +80,16 @@
               display: block;
             }
           }
+          .navbar-toggler-icon {
+            background-image: none;
+            /* fas fa-times */
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            padding-top: 5px;
+            &::before {
+              content: "\f00d";
+            }
+          }
         }
       }
       .yw-topnav-fast-access .dropdown-menu.dropdown-menu-right[data-bs-popper] {
