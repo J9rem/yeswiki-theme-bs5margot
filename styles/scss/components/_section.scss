@@ -20,6 +20,11 @@ section {
     &:not(.with-bg-pattern) {
       padding: 0;
     }
+    .modal-dialog .modal-body .page &.full-width {
+      max-width: 100%;
+      margin-left: -50%;
+      margin-right: -50%;
+    }
   }
 
   &.with-bg-pattern{
