@@ -104,8 +104,8 @@
       }
     }
     &.nav-item {
-      @media (max-width: 800px) {
-        border-bottom: var(--bs5margot-navbar-li-bottom-max800px);
+      @media (max-width: 991px) {
+        border-bottom: var(--bs5margot-navbar-li-bottom-max991px);
       }
     }
   }

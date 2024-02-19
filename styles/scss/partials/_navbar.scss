@@ -42,6 +42,21 @@
   
     @media( max-width:991px){
       flex-wrap: wrap;
+      header {
+        order: 1;
+      }
+      .navbar-brand {
+        order: 2;
+      }
+      .navbar-toggler {
+        order: 3;
+      }
+      #navbarSupportedContent {
+        order: 5;
+      }
+      .yw-topnav-fast-access {
+        order: 4;
+      }
     }
   }
 
