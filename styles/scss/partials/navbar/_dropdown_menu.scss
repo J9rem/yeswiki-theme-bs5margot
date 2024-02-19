@@ -1,0 +1,55 @@
+/*
+ * This file is part of the YesWiki Theme bs5margot.
+ *
+ * Authors : see README.md file that was distributed with this source code.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+/* ----------------- */
+/*   DropDown Menu   */
+/* ----------------- */
+
+#yw-topnav .dropdown-menu {
+  background: var(--navbar-bg-color);
+  box-shadow:none;
+  border:none;
+  margin-top: 14px;
+  border-radius: 0 0 5px 5px;
+  font-size: .9rem;
+
+  @media (max-width: 800px) {
+    margin-top: .6rem !important;
+    text-align: left;
+    font-size: 1rem;
+  }
+
+  a {
+    padding: 6px 20px 6px 15px;
+    color: var(--navbar-link-color);
+    background-color: transparent !important;
+    font-weight: 600;
+
+    &:hover {
+      color: var(--navbar-link-hover-color);
+      background-color: transparent !important;
+    }
+
+    i {
+      width: 20px;
+      text-align: center;
+    }
+  }
+
+  .btn {
+    margin: .5rem 1rem;
+    font-size: .9rem;
+  }
+
+  .divider {
+    margin: 4px 0 10px 0;
+    opacity: .2;
+    background-color: var(--navbar-link-color);
+  }
+}

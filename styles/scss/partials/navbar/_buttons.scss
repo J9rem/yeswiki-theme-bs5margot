@@ -1,0 +1,79 @@
+/*
+ * This file is part of the YesWiki Theme bs5margot.
+ *
+ * Authors : see README.md file that was distributed with this source code.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+
+/* ----------------- */
+/*      Buttons      */
+/* ----------------- */
+.navbar-btn {
+  margin: 0;
+} /* reset bootstrap */
+
+#yw-topnav {
+  .btn {
+    &, &:hover, &:focus {
+      outline: none;
+    }
+  }
+  .navbar-nav > li > a.btn {
+    margin: 0 .5rem;
+    @media (max-width: 1200px) {
+      margin: 0;
+    }
+  }
+
+  .yw-topnav-fast-access {
+    .btn-icon, [href="#search"], .dropdown-toggle {
+      display: inline-flex;
+      height: 2.3rem;
+      width: 2.5rem;
+      align-items: center;
+      justify-content: center;
+    }
+    .btn {
+      margin-left: .3rem;
+      i {
+        margin: 0;
+      }
+      .icon-cog {
+        font-size: 1.3em;
+      }
+    }
+  }
+
+  @media (max-width: 800px) {
+    .yw-topnav-fast-access .btn.btn-default,
+    .btn.btn-menu.btn-default{
+      &, &:hover, &:focus {
+        background: var(--navbar-bg-color) !important;
+        color: var(--navbar-link-color) !important;
+      }
+    }
+  }
+
+  /* Fix buttons color as they are overwritten by boostrap */
+  /* TODO check if needed */
+  .btn:not(.btn-default):not(.btn-link) {
+    color: var(--neutral-light-color);
+  }
+  @each $name, $color in $margot-theme-colors {
+    @if $name == default {
+      .btn.btn-default {
+        background: var(--navbar-btn-default-bg-color) !important;
+        color: var(--navbar-bg-color) !important;
+      }
+    } @else if $name != neutral {
+      .btn.btn-#{$name} {
+        &,&:hover,&:focus {
+          background-color: var($color) !important;
+        }
+      } 
+    }
+  }
+}

@@ -1,0 +1,128 @@
+/*
+ * This file is part of the YesWiki Theme bs5margot.
+ *
+ * Authors : see README.md file that was distributed with this source code.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+/* ----------------- */
+/*     Nav Links     */
+/* ----------------- */
+
+%navbar-links-not-btn {
+  @extend %navbar-links;
+  padding: .5rem 1.4rem;
+  @media (max-width: 1200px) {
+    padding: .3rem .8rem;
+  }
+}
+
+#yw-topnav {
+  .links-container {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    @media (min-width: 801px) {
+      display: flex !important;
+    }
+    
+    @media (max-width: 800px) {
+      display: none;
+      position: absolute;
+      left: 0;
+      top: calc(100% + 1rem);
+      right: 0;
+      z-index: 1000;
+
+      .nav {
+        flex-direction: column;
+        background-color: var(--navbar-bg-color);
+        border-radius: .3em;
+        margin: 0 1rem;
+        padding: .8rem 1.5rem;
+
+        & > li {
+          width: 100%;
+          z-index: auto;
+          text-align: center;
+
+          &:before {
+            content: " ";
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 1.2rem;
+            height: 1px;
+            z-index: auto;
+            background-color: var(--navbar-link-color);
+          }
+        }
+
+        a {
+          &:not(.btn) {
+            line-height: 2.5rem;
+            font-size: 1rem;
+            display: inline;
+            background-color: var(--navbar-bg-color) !important;
+          }
+          &.btn {
+            margin: 5px 0;
+          }
+        }
+      }
+    }
+    .navbar-nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+  }
+  @media (max-width: 800px) {
+    .btn .fa {
+      font-size: 1.5rem !important;
+    }
+  }
+
+  .navbar-nav > li {
+    &, & > .btn-group {
+      & > a:not(.btn) {
+        @extend %navbar-links-not-btn;
+      }
+      & > a.btn-link {
+        @extend %navbar-links;
+      }
+    }
+    & > .btn-group > a:not(.btn) {
+      &:not(:first-child) {
+        padding-left: .2rem;
+      }
+      &:not(:last-child) {
+        padding-right: .2rem;
+      }
+    }
+    &.nav-item {
+      @media (max-width: 800px) {
+        border-bottom: var(--bs5margot-navbar-li-bottom-max800px);
+      }
+    }
+  }
+  li a {
+    &.active-link {
+      font-weight: bold;
+    }
+    text-transform: var(--bs5margot-navbar-li-text-transform);
+  }
+
+  /* -------------- */
+  /* only one level */
+  /* -------------- */
+
+  div > ul.nav.navbar-nav > li {
+    & > a > .caret,& > ul.dropdown-menu {
+      display:none;
+    }
+  }
+}

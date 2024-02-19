@@ -1,0 +1,45 @@
+/*
+ * This file is part of the YesWiki Theme bs5margot.
+ *
+ * Authors : see README.md file that was distributed with this source code.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+/* ----------------- */
+/*     SEARCH        */
+/* ----------------- */
+#search {
+  .btn.close-search {
+    background-color: transparent;
+    border: none;
+    color: var(--neutral-light-color) !important;
+    background-color: var(--neutral-color) !important;
+    font-size: 5rem;
+    top: -1.4rem;
+    padding: 0 2rem;
+    @media (max-width: 800px) {
+      right: -5px;
+    }
+  }
+  .yeswiki-search-form {
+    .search-query {
+      height: 4rem !important;
+      margin: 0;
+      border: none;
+    }
+    .btn-search {
+      @extend .search-query;
+      &[type=submit] {
+        padding: 0 1.8rem;
+        background-color: var(--primary-color) !important;
+        color: var(--neutral-light-color) !important;
+        border-radius: 0 5px 5px 0;
+      }
+      i {
+        font-size: 1.8rem;
+      }
+    }
+  }
+}

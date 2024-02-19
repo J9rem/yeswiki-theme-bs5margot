@@ -1,0 +1,34 @@
+/*
+ * This file is part of the YesWiki Theme bs5margot.
+ *
+ * Authors : see README.md file that was distributed with this source code.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+/* ----------------- */
+/*    LoginModal     */
+/* ----------------- */
+#LoginModal {
+  .login-form-modal {
+    margin-top: -20px;
+  }
+  .modal-dialog {
+    max-width: 600px;
+  }
+}
+.login-form {
+  margin: 0 auto;
+  max-width: 500px;
+}
+.login-form-dropdown {
+  font-size: 1rem;
+}
+.login-form-inline [type=submit] {
+  margin-left: .5rem;
+}
+ 
+#LoginModal input[name=login], .login-form [type=submit], .login-form-dropdown [type=submit] {
+  margin-top: 1rem;
+}

@@ -60,7 +60,13 @@
    --btn-border: 0;
    --btn-border-radius: .5em;
  
-   --checkbox-color: var(--primary-color)
+   --checkbox-color: var(--primary-color);
+
+   /* specific for this theme */
+   --bs5margot-navbar-li-text-transform: uppercase;
+   --bs5margot-navbar-li-bottom-max800px: 2px dashed var(--primary-color);
+   --navbar-btn-default-bg-color: transparent;
+   --bs5margot-yw-topnav-border-bottom: 1px solid var(--neutral-light-color);
  }
  
  @media (max-width: 1200px) {
