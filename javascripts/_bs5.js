@@ -217,7 +217,9 @@
       $(base).find('.active').removeClass('active')
       $(tabContentLink).addClass('active')
       $(tabContent).find('.active').removeClass('active')
+      $(tabContent).find('.show').removeClass('show')
       $(tabContentItem).addClass('active')
+      $(tabContentItem).addClass('show')
     }
     // manage iframe case
     if (window.location != parent.parent.location) {
@@ -376,9 +378,9 @@
       // '.panel-group > .panel > .panel-collapse > .panel-body': 'accordion-body',
       
       // alias for glyphicon
-      'i.glyphicon': 'fa',
-      'i.glyphicon.glyphicon-chevron-right': 'fa-chevron-right',
-      'i.glyphicon.glyphicon-chevron-left': 'fa-chevron-left',
+      'i.glyphicon.glyphicon-chevron-right': ['fa','fa-chevron-right'],
+      'i.glyphicon.glyphicon-chevron-left': ['fa','fa-chevron-left'],
+      'i.glyphicon.glyphicon-book': ['fas','fa-file-pdf']
     })
 
     convertData({
