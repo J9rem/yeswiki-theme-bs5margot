@@ -311,7 +311,7 @@
   const manageSidebarbutton = () => {
     document.querySelectorAll('.theme-sidebar > a:not(.sidebar-updated),.theme-sidebar > .include > a:not(.sidebar-updated)')?.forEach((item) => {
         item?.classList.add('sidebar-updated')
-        const txt = item?.innerText ?? ''
+        const txt = (item?.textContent ?? item?.innerText ?? '')?.trim() ?? ''
         const icon = item?.querySelector('i') ?? null
 
         // clean
