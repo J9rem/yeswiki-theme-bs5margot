@@ -50,9 +50,12 @@
       #navbarSupportedContent, .navbar-collapse {
         .copy-of-sidebar {
           border-radius: 10px;
+          border-bottom: none;
           display: flex;
           flex-direction: column;
           justify-content: center;
+          margin-bottom: 5px;
+          margin-top: 5px;
           position: relative;
           background-color: var(--navbar-link-color);
           .nav-link {
