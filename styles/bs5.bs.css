@@ -67,6 +67,10 @@
    --bs5margot-navbar-li-bottom-max800px: 2px dashed var(--primary-color);
    --navbar-btn-default-bg-color: transparent;
    --bs5margot-yw-topnav-border-bottom: 1px solid var(--neutral-light-color);
+   --theme-sidebar-border: none;
+   --theme-sidebar-border-radius: 10px 0 0 10px;
+   --theme-sidebar-box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 2px;
+   --theme-sidebar-text-color: white;
  }
  
  @media (max-width: 1200px) {
