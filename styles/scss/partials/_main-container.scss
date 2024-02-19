@@ -18,8 +18,7 @@
 }
 
 #yw-main {
-  --padding-x: 1rem;
-  padding: var(--padding-x);
+  padding: var(--yw-main-padding-y-width-up-to-800px) var(--yw-main-padding-x-width-up-to-800px);
   position: relative;
   min-height: 400px;
   width: 100%;
@@ -27,10 +26,14 @@
   display: flex;
   justify-content: center;
   @media (min-width: 992px) {
-    & { --padding-x: 1.5rem; }
+    & { 
+      padding: var(--yw-main-padding-y-width-992-to-1199px) var(--yw-main-padding-x-width-992-to-1199px);
+    }
   }
   @media (min-width: 1200px) {
-    & { --padding-x: 2rem; padding: 1.5rem var(--padding-x); }
+    & {
+      padding: var(--yw-main-padding-y-width-more-than-1200px) var(--yw-main-padding-x-width-more-than-1200px);
+    }
   }
   @media (max-width: 800px) {
     & {

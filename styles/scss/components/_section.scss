@@ -8,12 +8,17 @@
  */
 section {
   padding:1rem;
-  &.full-width .container {
-    @media (max-width: 1200px) {
-      padding: 0 1.5rem;
+  &.full-width{
+    .container {
+      @media (max-width: 1200px) {
+        padding: 0 1.5rem;
+      }
+      @media (max-width: 800px) {
+        padding: 0 1rem; 
+      }
     }
-    @media (max-width: 800px) {
-      padding: 0 1rem; 
+    &:not(.with-bg-pattern) {
+      padding: 0;
     }
   }
 

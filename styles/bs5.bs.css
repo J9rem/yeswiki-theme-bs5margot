@@ -71,6 +71,12 @@
    --theme-sidebar-border-radius: 10px 0 0 10px;
    --theme-sidebar-box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 2px;
    --theme-sidebar-text-color: white;
+   --yw-main-padding-x-width-up-to-800px: 1rem;
+   --yw-main-padding-y-width-up-to-800px: 0;
+   --yw-main-padding-x-width-992-to-1199px: 1.5rem;
+   --yw-main-padding-y-width-992-to-1199px: 0;
+   --yw-main-padding-x-width-more-than-1200px: 2rem;
+   --yw-main-padding-y-width-more-than-1200px: 0;
  }
  
  @media (max-width: 1200px) {
