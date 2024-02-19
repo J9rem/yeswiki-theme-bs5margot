@@ -25,6 +25,9 @@ img {
     img, video, iframe {
       max-width: 100% !important;
     }
+    img {
+      height:auto;
+    }
     .media > .media-left > img {
       max-width: initial !important;
     }
