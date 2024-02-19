@@ -92,11 +92,11 @@
         : sanitizedV.slice(0,1).toUpperCase()+sanitizedV.slice(1)
     }).join('')
   }
+  const configureTopNav = () => {
 
   /**
    * configure Top Nav
    */
-  const configureTopNav = () => {
     const topNav = getTopNav()
     const navbarCollapse = topNav.querySelector('.navbar-collapse:not(#navbarSupportedContent)')
     navbarCollapse?.setAttribute('id','navbarSupportedContent')
@@ -308,11 +308,37 @@
   /**
    * manage sidebar buttons
    */
+  const appendItemsToNavBarLinks = (items) => {
+    console.log({items})
+    const topNav = getTopNav()
+    const navbarCollapse = topNav.querySelector('.navbar-collapse')
+    if (navbarCollapse && items?.length > 0){
+      const newBlock = document.createElement('ul')
+      newBlock.classList.add('copy-of-sidebar')
+      newBlock.classList.add('nav')
+      newBlock.classList.add('navbar-nav')
+      items?.forEach((item)=>{
+        const li = document.createElement('li')
+        li.classList.add('nav-item')
+        item.classList?.remove('btn')
+        item.classList?.remove('btn-default')
+        item.classList?.remove('btn-primary')
+        item.classList?.add('nav-link')
+        li.append(item)
+        newBlock.append(li)
+      })
+      navbarCollapse.append(newBlock)
+    }
+  }
+
   const manageSidebarbutton = () => {
+    const sideBarItems = []
     document.querySelectorAll('.theme-sidebar > a:not(.sidebar-updated),.theme-sidebar > .include > a:not(.sidebar-updated)')?.forEach((item) => {
         item?.classList.add('sidebar-updated')
         const txt = (item?.textContent ?? item?.innerText ?? '')?.trim() ?? ''
         const icon = item?.querySelector('i') ?? null
+
+        sideBarItems.push(item.cloneNode(true))
 
         // clean
         while (item.hasChildNodes()) {
@@ -333,6 +359,7 @@
         item.appendChild(formattedIcon)
       }
     )
+    appendItemsToNavBarLinks(sideBarItems)
   }
 
   /**

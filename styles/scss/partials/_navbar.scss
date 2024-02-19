@@ -10,10 +10,10 @@
 /* Menu horizontal principal */
 
 %navbar-links {
-  color: var(--navbar-link-color) !important;
-  background-color: transparent !important;
+  color: var(--navbar-link-color);
+  background-color: transparent;
   &:hover {
-    color: var(--navbar-link-hover-color) !important;
+    color: var(--navbar-link-hover-color);
   }
 }
 
@@ -40,8 +40,29 @@
     align-items: center;
     max-width: initial; /* to rewrite definition by bootstrap */
   
+    #navbarSupportedContent, .navbar-collapse {
+      .copy-of-sidebar {
+        display: none;
+      }
+    }
     @media(max-width:991px){
       flex-wrap: wrap;
+      #navbarSupportedContent, .navbar-collapse {
+        .copy-of-sidebar {
+          border-radius: 10px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          position: relative;
+          background-color: var(--navbar-link-color);
+          .nav-link {
+            color: var(--navbar-bg-color);
+            &:hover {
+              color: var(--navbar-link-hover-color);
+            }
+          }
+        }
+      }
       .navbar-toggler {
         & + #navbarSupportedContent, & + .navbar-collapse {
           & + .yw-topnav-fast-access {
