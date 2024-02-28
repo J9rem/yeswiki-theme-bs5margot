@@ -47,6 +47,9 @@
     }
     @media(max-width:991px){
       flex-wrap: wrap;
+      & > header.d-flex {
+        flex-wrap: wrap;
+      }
       #navbarSupportedContent, .navbar-collapse {
         .copy-of-sidebar {
           border-radius: 10px;
