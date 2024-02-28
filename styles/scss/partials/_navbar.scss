@@ -92,8 +92,11 @@
           }
         }
       }
-      .yw-topnav-fast-access .dropdown-menu.dropdown-menu-right[data-bs-popper] {
-        right: auto;
+      .yw-topnav-fast-access {
+        flex-shrink: 0;
+        .dropdown-menu.dropdown-menu-right[data-bs-popper] {
+          right: auto;
+        }
       }
     }
   }
