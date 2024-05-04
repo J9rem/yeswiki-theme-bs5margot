@@ -323,6 +323,12 @@
         item.classList?.remove('btn-default')
         item.classList?.remove('btn-primary')
         item.classList?.add('nav-link')
+        const spansWithLoginText = item.querySelectorAll('.login-text')
+        if (spansWithLoginText?.length > 0){
+          spansWithLoginText.forEach((span) => {
+            span.classList?.remove('login-text')
+          })
+        }
         li.append(item)
         newBlock.append(li)
       })
