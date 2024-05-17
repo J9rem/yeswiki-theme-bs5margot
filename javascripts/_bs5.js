@@ -39,8 +39,99 @@
     })
   }
 
-  const convertData = (params)=>{
-    Object.entries(params)
+  /**
+   * @constant
+   * @var {Object} dataToFollow - when document is clicked 
+   */
+  const dataToFollow = {}
+
+  /**
+   * @param {Object} newDataToFollow
+   */
+  const registerParams = (newDataToFollow) => {
+    for (const key in newDataToFollow) {
+      if (Object.hasOwnProperty.call(newDataToFollow, key)) {
+        dataToFollow[key] = newDataToFollow[key]
+      }
+    }
+  }
+
+  /**
+   * register click event
+   */
+  const registerClickEvent = () => {
+    document.addEventListener('click',(event)=>{
+      const target = event.target
+      let shouldClick = false
+      let element = target
+      for (let index = 0; !shouldClick && index < 3; index++) {
+        switch (index) {
+          case 2:
+            element = target?.parentNode?.parentNode ?? target
+            break;
+          case 1:
+            element = target?.parentNode ?? target
+            break;
+          default:
+            break;
+        }
+        Object.entries(dataToFollow).forEach(([origin,data])=>{
+          if (
+            (
+              !(data?.classes?.length > 0)
+              || data.classes.some((className)=>element?.classList.contains(className))
+            )
+            && element?.hasAttribute(`data-${origin}`)
+            && (
+              !(data?.criteron?.length > 0)
+              || data.criteron.some((postfix)=>element?.getAttribute(`data-${origin}`) === postfix)
+            )
+          ){
+            event.preventDefault()
+            event.stopPropagation()
+            shouldClick = true
+            modifyElement(origin,data,element)
+          }
+        })
+      }
+      if (shouldClick){
+        element.dispatchEvent(new MouseEvent('click'))
+        return false
+      }
+      return true
+    })
+  }
+
+  /**
+   * convert data and class on element
+   * @param {string} origin 
+   * @param {Object} data 
+   * @param {*} element 
+   */
+  const modifyElement = (origin,data,element) => {
+    const oldName = `data-${origin}`
+    const newName = `data-${data.newname}`
+    const oldDatasetName = prepareForDatasetName(origin)
+    const newDatasetName = prepareForDatasetName(data.newname)
+    if (data?.remove !== true){
+      const newValue = data?.newcriteron
+        ?? element.getAttribute(oldName)
+      element.setAttribute(newName,newValue)
+      element.dataset[newDatasetName] = newValue
+      if (origin === 'parent'){
+        defineAlsoParentForPanel(element,newName,newValue,newDatasetName)
+      }
+    }
+    if (data?.remove === true || data?.replace === true){
+      element.removeAttribute(oldName)
+      if (oldDatasetName in element.dataset){
+        delete element.dataset[oldDatasetName]
+      }
+    }
+  }
+
+  const convertData = ()=>{
+    Object.entries(dataToFollow)
     .forEach(([origin,data])=>{
         const query = 
           (
@@ -50,25 +141,7 @@
           ).map((crit)=>`[data-${origin}${crit?.length > 0 ? `="${crit}"` : ''}]`)
           .join(',')
         document.querySelectorAll(query).forEach((e)=>{
-          const oldName = `data-${origin}`
-          const newName = `data-${data.newname}`
-          const oldDatasetName = prepareForDatasetName(origin)
-          const newDatasetName = prepareForDatasetName(data.newname)
-          if (data?.remove !== true){
-            const newValue = data?.newcriteron
-              ?? e.getAttribute(oldName)
-            e.setAttribute(newName,newValue)
-            e.dataset[newDatasetName] = newValue
-            if (origin === 'parent'){
-              defineAlsoParentForPanel(e,newName,newValue,newDatasetName)
-            }
-          }
-          if (data?.remove === true || data?.replace === true){
-            e.removeAttribute(oldName)
-            if (oldDatasetName in e.dataset){
-              delete e.dataset[oldDatasetName]
-            }
-          }
+          modifyElement(origin, data, e)
       })
     })
   }
@@ -368,33 +441,33 @@
   }
 
   /**
-   * manage modals closing alias
-   */
-  const manageModalsClosing = () => {
-    document.addEventListener('click',(event)=>{
-      const target = event.target
-      if ((
-          target?.classList.contains('close')
-          || target?.classList.contains('no-header-btn-close')
-        )
-        && target?.hasAttribute('data-dismiss')
-        && target?.getAttribute('data-dismiss') === 'modal'){
-        event.preventDefault()
-        event.stopPropagation()
-        target.removeAttribute('data-dismiss')
-        target.setAttribute('data-bs-dismiss','modal')
-        target.dispatchEvent(new MouseEvent('click'))
-      }
-    })
-  }
-
-  /**
    * main process
    */
   const mainFunc = (firstCall = false) => {
     if (firstCall === true){
-      manageModalsClosing()
       manageSidebarbutton()
+      registerParams({
+        'toggle': {
+          criteron: ['collapse','tab','modal'],
+          newname: 'bs-toggle',
+          replace: true
+        },
+        'dismiss': {
+          criteron: ['modal'],
+          newname: 'bs-dismiss',
+          replace: true,
+          classes: ['close','no-header-btn-close']
+        },
+        'parent': {
+          newname: 'bs-parent',
+          replace: true
+        },
+        'target': {
+          newname: 'bs-target',
+          replace: true
+        }
+      })
+      registerClickEvent()
     }
     configureTopNav()
     setFirstLevelSplitted()
@@ -415,26 +488,7 @@
       'i.glyphicon.glyphicon-book': ['fas','fa-file-pdf']
     })
 
-    convertData({
-      'toggle': {
-        criteron: ['collapse','tab','modal'],
-        newname: 'bs-toggle',
-        replace: true
-      },
-      'dismiss': {
-        criteron: ['modal'],
-        newname: 'bs-dismiss',
-        replace: true
-      },
-      'parent': {
-        newname: 'bs-parent',
-        replace: true
-      },
-      'target': {
-        newname: 'bs-target',
-        replace: true
-      }
-    })
+    convertData()
   }
 
   // run once after DOMContentLoaded (after bootstrap if missing things)
