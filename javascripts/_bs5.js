@@ -441,6 +441,76 @@
   }
 
   /**
+   * tooltips
+   */
+  const removeTooltipForSidebarLoginModal = () => {
+    document.querySelectorAll(
+        '[href="#LoginModal"][data-toogle=tooltip].sidebar-updated,'
+        +'[href="#LoginModal"][data-tooltip=tooltip].sidebar-updated').forEach((element) => {
+      const tooltip = bootstrap.Tooltip.getOrCreateInstance(element)
+      tooltip.dispose()
+      element.removeAttribute('data-toggle')
+      element.removeAttribute('data-tooltip')
+      element.removeAttribute('data-original-title')
+      element.removeAttribute('data-bs-original-title')
+      element.removeAttribute('title')
+    })
+  }
+  const replaceTooltip = (element) => {
+    if (element instanceof Element && element.hasAttribute('data-toggle')){
+      const toggle = element.getAttribute('data-toggle')
+      if (toggle === 'tooltip'){
+        element.removeAttribute('data-toggle')
+        if (!element.hasAttribute('disabled')){
+          element.setAttribute('data-bs-toggle',toggle)
+          bootstrap.Tooltip.getOrCreateInstance(element)
+        } else {
+          const tooltip = bootstrap.Tooltip.getOrCreateInstance(element)
+          const styles = window.getComputedStyle(element)
+          if (styles.getPropertyValue('display').match(/.*inline.*/)) {
+            tooltip.dispose()
+            const parentSpan = document.createElement('span')
+            parentSpan.setAttribute('data-bs-toggle',toggle)
+            const title = 
+              element.hasAttribute('data-bs-original-title')
+              ? element.getAttribute('data-bs-original-title')
+              : (
+                element.hasAttribute('data-original-title')
+                ? element.getAttribute('data-original-title')
+                : (
+                  element.hasAttribute('title')
+                  ? element.getAttribute('title')
+                  : ""
+                )
+              )
+            element.removeAttribute('data-bs-original-title')
+            element.removeAttribute('data-original-title')
+            element.removeAttribute('title')
+            parentSpan.setAttribute('title',title)
+            if (element.hasAttribute('data-placement')){
+              parentSpan.setAttribute('data-bs-placement',element.getAttribute('data-placement'))
+              element.removeAttribute('data-placement')
+            }
+            bootstrap.Tooltip.getOrCreateInstance(parentSpan)
+            element.before(parentSpan)
+            parentSpan.append(element)
+          }
+        }
+      }
+    }
+  }
+  const manageTooltips = () => {
+    setInterval(
+      () => {
+        removeTooltipForSidebarLoginModal()
+        document.querySelectorAll('[data-toggle="tooltip"]')
+          .forEach(replaceTooltip)
+      },
+      700
+    )
+  }
+
+  /**
    * main process
    */
   const mainFunc = (firstCall = false) => {
@@ -468,6 +538,7 @@
         }
       })
       registerClickEvent()
+      manageTooltips()
     }
     configureTopNav()
     setFirstLevelSplitted()
