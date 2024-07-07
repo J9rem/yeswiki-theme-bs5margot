@@ -454,6 +454,7 @@
       element.removeAttribute('data-original-title')
       element.removeAttribute('data-bs-original-title')
       element.removeAttribute('title')
+      element.setAttribute('data-bs-toggle','modal')
     })
   }
   const replaceTooltip = (element) => {
