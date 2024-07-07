@@ -139,18 +139,35 @@ $(document).ready(function() {
     .parents(".control-group.email.password")
     .removeClass("hidden");
 
+  function htmlEntities(str) {
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&apos;');
+  }
+
   $(".tooltip_aide").each(function(){addTooltip(this)});
   function addTooltip(element) {
-    var tooltip = $(element).data("original-title") || ($(element).attr("title") || '');
+    var title = $(element).data("bs-original-title")
+      || $(element).data("original-title")
+      || $(element).attr("title") 
+      || '';
     var newImage = $(
-      "<span class='form-help fa fa-question-circle' title='" +
-      tooltip.replace(/'/g, "&#39;") +
-      "' onclick=\"$(element).tooltip(\'toggle\')\"></span>"
+      `
+        <span
+          class="form-help fa fa-question-circle"
+          title="${htmlEntities(title)}"
+          data-bs-toggle="tooltip"
+          onclick="$(this).tooltip('toggle')"
+          ></span>
+      `
     );
     $(element)
       .parent()
       .append(newImage);
-     newImage.tooltip();
+    new bootstrap.Tooltip(newImage);
     $(element).remove();
   };
 
