@@ -6,90 +6,88 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
- 
-@import '../fonts/fonts.css';
-@import 'not-editable/main.min.css';
 
- /*
+@import "../fonts/fonts.css";
+@import "not-editable/main.min.css";
+
+/*
   * CSS variables
   */
- :root {
-   --success-color: #3cab3b;
-   --danger-color: #d8604c;
-   --warning-color: #D78958;
- 
-   --main-text-color: var(--neutral-color);
-   --main-bg-color: white;
-   --main-container-bg-color: white;
- 
-   /* Default values when there is no preset */
-   --main-text-fontsize: 17px;
-   --main-text-fontfamily: "Nunito", sans-serif;
-   --main-title-fontfamily:'Nunito', sans-serif;
-   --title-h1-color:var(--primary-color);
-   --title-h2-color:var(--primary-color);
-   --title-h3-color:var(--secondary-color-1);
-   --title-h4-color:var(--secondary-color-2);
-   --title-h5-color:var(--secondary-color-2);
- 
-   /* Links */
-   --link-color: var(--primary-color);
-   --link-hover-color: var(--primary-color);
- 
-   /* contained page */
-   --navbar-bg-color: var(--primary-color);
-   --navbar-text-color: white;
-   --navbar-link-color: white;
-   --navbar-link-bg-color: transparent;
-   --navbar-link-hover-color: rgba(255, 255, 255, 0.85);
-   --navbar-link-bg-hover-color: transparent;
-   --navbar-border: none;
-   --navbar-border-radius: 0;
-   --navbar-shadow: none;
- 
- 
-   --header-bg-color: white;
-   --header-text-color: var(--neutral-color);
-   --header-title-color: var(--primary-color);
- 
-   --footer-bg-color: transparent;
-   --footer-text-color: var(--main-text-color);
-   --footer-title-color: var(--main-text-color);
-   --footer-border: none; /* because .footer::after*/
- 
-   --btn-border: 0;
-   --btn-border-radius: .5em;
- 
-   --checkbox-color: var(--primary-color);
+:root {
+  --success-color: #3cab3b;
+  --danger-color: #d8604c;
+  --warning-color: #d78958;
 
-   /* specific for this theme */
-   --bs5margot-navbar-li-text-transform: uppercase;
-   --bs5margot-navbar-li-bottom-max991px: 2px dashed var(--primary-color);
-   --navbar-btn-default-bg-color: transparent;
-   --navbar-btn-default-color: var(--primary-color);
-   --bs5margot-yw-topnav-border-bottom: 1px solid var(--neutral-light-color);
-   --theme-sidebar-border: none;
-   --theme-sidebar-border-radius: 10px;
-   --theme-sidebar-box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 2px;
-   --theme-sidebar-span-padding: 5px 5px 5px 10px;
-   --theme-sidebar-text-color: white;
-   --yw-main-padding-x-width-up-to-800px: 1rem;
-   --yw-main-padding-y-width-up-to-800px: 0;
-   --yw-main-padding-x-width-992-to-1199px: 1.5rem;
-   --yw-main-padding-y-width-992-to-1199px: 0;
-   --yw-main-padding-x-width-more-than-1200px: 2rem;
-   --yw-main-padding-y-width-more-than-1200px: 0;
- }
- 
- @media (max-width: 1200px) {
-   :root {
-     --main-text-fontsize: 15px;
-   }
- }
- 
- @media (max-width: 800px) {
-   :root {
-     --main-text-fontsize: 13px;
-   }
- }
- 
+  --main-text-color: var(--neutral-color);
+  --main-bg-color: white;
+  --main-container-bg-color: white;
+
+  /* Default values when there is no preset */
+  --main-text-fontsize: 17px;
+  --main-text-fontfamily: "Nunito", sans-serif;
+  --main-title-fontfamily: "Nunito", sans-serif;
+  --title-h1-color: var(--primary-color);
+  --title-h2-color: var(--primary-color);
+  --title-h3-color: var(--secondary-color-1);
+  --title-h4-color: var(--secondary-color-2);
+  --title-h5-color: var(--secondary-color-2);
+
+  /* Links */
+  --link-color: var(--primary-color);
+  --link-hover-color: var(--primary-color);
+
+  /* contained page */
+  --navbar-bg-color: var(--primary-color);
+  --navbar-text-color: white;
+  --navbar-link-color: white;
+  --navbar-link-bg-color: transparent;
+  --navbar-link-hover-color: rgba(255, 255, 255, 0.85);
+  --navbar-link-bg-hover-color: transparent;
+  --navbar-border: none;
+  --navbar-border-radius: 0;
+  --navbar-shadow: none;
+
+  --header-bg-color: white;
+  --header-text-color: var(--neutral-color);
+  --header-title-color: var(--primary-color);
+
+  --footer-bg-color: transparent;
+  --footer-text-color: var(--main-text-color);
+  --footer-title-color: var(--main-text-color);
+  --footer-border: none; /* because .footer::after*/
+
+  --btn-border: 0;
+  --btn-border-radius: 0.5em;
+
+  --checkbox-color: var(--primary-color);
+
+  /* specific for this theme */
+  --bs5margot-navbar-li-text-transform: uppercase;
+  --bs5margot-navbar-li-bottom-max991px: 2px dashed var(--primary-color);
+  --navbar-btn-default-bg-color: transparent;
+  --navbar-btn-default-color: white;
+  --bs5margot-yw-topnav-border-bottom: 1px solid var(--neutral-light-color);
+  --theme-sidebar-border: none;
+  --theme-sidebar-border-radius: 10px;
+  --theme-sidebar-box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 2px;
+  --theme-sidebar-span-padding: 5px 5px 5px 10px;
+  --theme-sidebar-text-color: white;
+  --yw-main-padding-x-width-up-to-800px: 1rem;
+  --yw-main-padding-y-width-up-to-800px: 0;
+  --yw-main-padding-x-width-992-to-1199px: 1.5rem;
+  --yw-main-padding-y-width-992-to-1199px: 0;
+  --yw-main-padding-x-width-more-than-1200px: 2rem;
+  --yw-main-padding-y-width-more-than-1200px: 0;
+}
+
+@media (max-width: 1200px) {
+  :root {
+    --main-text-fontsize: 15px;
+  }
+}
+
+@media (max-width: 800px) {
+  :root {
+    --main-text-fontsize: 13px;
+  }
+}
