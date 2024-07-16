@@ -557,7 +557,10 @@
       // alias for glyphicon
       'i.glyphicon.glyphicon-chevron-right': ['fa','fa-chevron-right'],
       'i.glyphicon.glyphicon-chevron-left': ['fa','fa-chevron-left'],
-      'i.glyphicon.glyphicon-book': ['fas','fa-file-pdf']
+      'i.glyphicon.glyphicon-book': ['fas','fa-file-pdf'],
+
+      // alias for iframe
+      '.embed-responsive': 'ratio'
     })
 
     convertData()
