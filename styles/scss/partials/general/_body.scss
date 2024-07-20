@@ -12,23 +12,24 @@
  */
 
 body {
-    padding: 0 !important;
-    background-image: none !important;
+  padding: 0 !important;
+  background-image: none !important;
 }
 
 html {
-    /* define also html so we can use rem */
-    @extend body;
+  /* define also html so we can use rem */
+  @extend body;
 }
 
-.hide {
-    @extend .d-none;
+.hide,
+.hidden {
+  @extend .d-none;
 }
 
 .pull-left {
-    @extend .float-start;
+  @extend .float-start;
 }
 
 .pull-right {
-    @extend  .float-end;
+  @extend .float-end;
 }

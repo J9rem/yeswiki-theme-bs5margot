@@ -511,6 +511,13 @@
     )
   }
 
+  const manageHiddenClass = () => {
+    document.querySelectorAll('.hidden')
+      .forEach((element) => {
+        element.style.display = 'none';
+      })
+  }
+
   /**
    * main process
    */
@@ -545,6 +552,7 @@
     setFirstLevelSplitted()
     manageDropDown()
     manageTabs(firstCall)
+    manageHiddenClass()
 
     addClassAlias({
       '.collapse.in:not(.show)': 'show',
