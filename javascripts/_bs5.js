@@ -518,6 +518,29 @@
       })
   }
 
+  const isButtonToCollapse = (element) => {
+    return element.tagName === 'BUTTON'
+      && (
+        (
+          element.hasAttribute('data-bs-toggle')
+          && element.getAttribute('data-bs-toggle') === 'collapse'
+        ) || (
+          element.hasAttribute('data-toggle')
+          && element.getAttribute('data-toggle') === 'collapse'
+        )
+      )
+  }
+  const preventDefaultOnPanels = () => {
+    document.addEventListener('click', (event) => {
+      if (isButtonToCollapse(event.target)
+        || isButtonToCollapse(event.target.parentNode)
+      ){
+        event.preventDefault() 
+        return true
+      }
+    })
+  }
+
   /**
    * main process
    */
@@ -553,6 +576,7 @@
     manageDropDown()
     manageTabs(firstCall)
     manageHiddenClass()
+    preventDefaultOnPanels()
 
     addClassAlias({
       '.collapse.in:not(.show)': 'show',
