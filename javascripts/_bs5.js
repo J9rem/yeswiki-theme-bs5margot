@@ -171,6 +171,9 @@
    * configure Top Nav
    */
     const topNav = getTopNav()
+    if (!topNav) {
+      return
+    }
     const navbarCollapse = topNav.querySelector('.navbar-collapse:not(#navbarSupportedContent)')
     navbarCollapse?.setAttribute('id','navbarSupportedContent')
 
@@ -249,6 +252,9 @@
 
   const setFirstLevelSplitted = () => {
     const topNav = getTopNav()
+    if (!topNav) {
+      return
+    }
     const topNavDropdownMenus = topNav.querySelectorAll('div > ul.nav.navbar-nav > li > ul.dropdown-menu')
     topNavDropdownMenus?.forEach((item) => {
         const siblingLinks = getSiblings(item,'a')
@@ -383,6 +389,9 @@
    */
   const appendItemsToNavBarLinks = (items) => {
     const topNav = getTopNav()
+    if (!topNav) {
+      return
+    }
     const navbarCollapse = topNav.querySelector('.navbar-collapse')
     if (navbarCollapse && items?.length > 0){
       const newBlock = document.createElement('ul')
