@@ -551,6 +551,58 @@
   }
 
   /**
+   * follow Modal
+   */
+  const followModal = () => {
+    const observerService = (mutationsList) => {
+      for (let mutation of mutationsList) {
+        if (mutation.type == "childList") {
+          const addedNodes = mutation?.addedNodes ?? []
+          if (addedNodes?.length > 0){
+            const filteredNodes = []
+            for (const node of addedNodes.values()) {
+              if (
+                node.tagName === 'DIV'
+                && node.classList.contains('modal')
+                && node.classList.contains('fade')
+              ) {
+                const iframes = node.querySelectorAll('iframe')
+                if (iframes?.length > 0){
+                  filteredNodes.push(node)
+                }
+              }
+            }
+            if (filteredNodes?.length > 0){
+              const node = filteredNodes[0]
+              const modal = new bootstrap.Modal(
+                node,
+                {
+                  show: true
+                }
+              )
+              node.addEventListener('hidden.bs.modal', event => {
+                modal.dispose()
+              })
+              modal.show()
+
+            }
+          }
+        }
+      }
+    }
+    const observer = new MutationObserver(observerService)
+    observer.observe(
+      document.getElementsByTagName('body')[0],
+      {
+        attributes: false,
+        childList: true,
+        subtree: false,
+        characterData: false
+      }
+    )
+  }
+
+  /**
    * main process
    */
   const mainFunc = (firstCall = false) => {
@@ -579,6 +631,7 @@
       })
       registerClickEvent()
       manageTooltips()
+      followModal()
     }
     configureTopNav()
     setFirstLevelSplitted()
